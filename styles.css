@@ -72,7 +72,7 @@ body {
   z-index: 80;
 
   /* Fundo transparente com blur */
-  background-color: transparent;
+  background-color: black;
 }
 
 #menu-toggle {
@@ -82,7 +82,7 @@ body {
 
 .sticky nav a,
 .sticky .site-title {
-  color: #000;
+  color: #fff;
   text-shadow: none;
 }
 
