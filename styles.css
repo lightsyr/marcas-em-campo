@@ -348,35 +348,35 @@ h6 {
 
 .bg-intro {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/images/rishabh-sharma-R-js25Pv1LQ-unsplash.jpg");
+    url("assets/images/rishabh-sharma-R-js25Pv1LQ-unsplash.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-jornalismo {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/images/camilo-jimenez-qZenO_gQ7QA-unsplash.jpg");
+    url("assets/images/camilo-jimenez-qZenO_gQ7QA-unsplash.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-marketing {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/images/path-digital-tR0jvlsmCuQ-unsplash.jpg");
+    url("assets/images/path-digital-tR0jvlsmCuQ-unsplash.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-influencers {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/images/berke-citak-0cpyFsSUiSc-unsplash.jpg");
+    url("assets/images/berke-citak-0cpyFsSUiSc-unsplash.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .bg-resumo {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/images/jonas-jacobsson-0FRJ2SCuY4k-unsplash.jpg");
+    url("assets/images/jonas-jacobsson-0FRJ2SCuY4k-unsplash.jpg");
   background-size: cover;
   background-position: center;
 }
