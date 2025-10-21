@@ -1,0 +1,754 @@
+:root {
+  --club-blue: #0066cc;
+  --club-red: #cc0000;
+  --club-black: #111111;
+  --accent: #cc0055;
+  --bg: #000;
+  --panel: #e2e2e2;
+  --panel-alt: #eeeeee;
+  --muted: #6b6b6b;
+  --max-width: 1880px;
+  --radius: 12px;
+
+  /* Novas fontes */
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  color-scheme: light;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+/* base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body); /* Aplicada fonte base */
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 36px;
+}
+
+/* ======================================= */
+/* === HEADER ATUALIZADO ================= */
+/* ======================================= */
+
+/* Estado inicial (sem scroll) - Transparente e flutuante */
+.sticky {
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+  padding: 4px;
+  position: fixed; /* Alterado de 'sticky' para 'fixed' */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+
+  /* Fundo transparente com blur */
+  background-color: transparent;
+}
+
+#menu-toggle {
+  color: #000;
+  text-shadow: none;
+}
+
+.sticky nav a,
+.sticky .site-title {
+  color: #000;
+  text-shadow: none;
+}
+
+/* Estado de scroll: Fundo preto sólido */
+.sticky.scrolled {
+  background: #000; /* Fundo preto sólido ao rolar */
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(50, 50, 50, 0.5); /* Borda escura */
+}
+
+/* Textos no estado de scroll (permanecem brancos, mas sem sombra) */
+.sticky.scrolled nav a {
+  color: #fff;
+  text-shadow: none; /* Remove sombra no fundo sólido */
+}
+.sticky.scrolled .site-title {
+  color: #fff;
+  text-shadow: none; /* Remove sombra no fundo sólido */
+}
+.sticky.scrolled #menu-toggle {
+  color: #fff;
+  text-shadow: none; /* Remove sombra no fundo sólido */
+}
+
+/* Fim do estado de scroll */
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  /* Alterado para space-between para acomodar a logo */
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-placeholder {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--club-blue), var(--club-red));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+}
+.site-title {
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+
+  /* Cor e sombra para modo transparente (estado inicial) */
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* nav */
+#menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  /* Cor e sombra para modo transparente (estado inicial) */
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+nav ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Cor e sombra para modo transparente (estado inicial) */
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-weight: 500; /* Ajustado peso */
+  transition: box-shadow 0.2s ease, color 0.3s ease;
+}
+
+/* Efeito de hover substitui o .active do JS */
+nav a:hover {
+  box-shadow: inset 0 -3px 0 var(--club-red);
+}
+
+@media (max-width: 900px) {
+  #menu-toggle {
+    display: inline-block;
+  }
+  nav ul {
+    display: none;
+  }
+
+  /* Menu mobile (fundo claro) */
+  nav.open ul {
+    display: block;
+    position: absolute;
+    right: 18px;
+    top: 64px;
+    background: var(--panel);
+    backdrop-filter: blur(6px);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  /* Links no menu mobile (texto preto) */
+  nav.open ul a {
+    color: #000;
+    text-shadow: none;
+  }
+
+  /* Menu mobile no estado 'scrolled' (fundo escuro) */
+  .sticky.scrolled nav.open ul {
+    background: #222; /* Fundo escuro para o menu mobile */
+  }
+  /* Links no menu mobile 'scrolled' (texto branco) */
+  .sticky.scrolled nav.open ul a {
+    color: #fff;
+    text-shadow: none;
+  }
+}
+
+/* hero panel (parallax) */
+.hero-panel {
+  position: relative;
+  height: 100dvh;
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1; /* Coloca atrás do gradiente */
+}
+
+.hero-media img,
+.hero-media iframe,
+.hero-media video,
+.hero-media canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  position: fixed;
+  user-select: none;
+}
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 36px;
+  text-align: center;
+}
+.hero-overlay h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  margin: 0 0 12px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  font-weight: 800;
+}
+
+.hero-overlay h1 span {
+  font-size: clamp(3rem, 4vw, 4rem);
+}
+
+.hero-overlay .subtitle {
+  opacity: 0.95;
+  margin-bottom: 18px;
+  font-size: clamp(1rem, 4vw, 2rem);
+
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 1);
+}
+.cta {
+  display: inline-block;
+  background: var(--club-red);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: var(--font-heading); /* Fonte do título */
+}
+
+/* panel alternation */
+.panel {
+  padding: 24px 0;
+  background: var(--panel);
+}
+
+.col-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.panel-alt {
+  /* background: linear-gradient(180deg, #fff, #fbfbfd); */
+  background: var(--panel-alt);
+}
+
+.content-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.content-wrap:has(.col-aside) {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 36px;
+  align-items: start;
+}
+
+.col {
+  border-radius: 10px;
+}
+
+.card {
+  background: linear-gradient(180deg, #fff, #fafafa);
+  padding: 16px; /* Aumentado */
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  margin-top: 16px;
+}
+
+/* typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading); /* Aplicada fonte de título */
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Aumentado */
+  margin-top: 0;
+  margin-bottom: 48px;
+  font-style: italic;
+  text-align: center;
+  align-content: center;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  min-height: calc(2.8rem * 7);
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  max-width: unset;
+}
+
+.bg-intro {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/rishabh-sharma-R-js25Pv1LQ-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-jornalismo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/camilo-jimenez-qZenO_gQ7QA-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-marketing {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/path-digital-tR0jvlsmCuQ-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-influencers {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/berke-citak-0cpyFsSUiSc-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-resumo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/images/jonas-jacobsson-0FRJ2SCuY4k-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.article-text p {
+  margin: 0 0 16px; /* Aumentado */
+  font-size: 1.3125rem; /* Aumentado */
+  text-align: justify;
+}
+.article-text h3,
+.article-text h4 {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.source-muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.multimedia {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Novo Bloco de Citação */
+
+.quote-list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.quote-block {
+  margin: 24px auto;
+  padding: 32px;
+  max-width: fit-content;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.quote-block::before {
+  /* Aspas decorativas */
+  content: "“";
+  font-family: var(--font-heading);
+  font-size: 5rem; /* Aumentado */
+  color: var(--club-red);
+  opacity: 0.2;
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  z-index: 1;
+}
+.quote-block p {
+  font-size: 1.1rem;
+  line-height: 2;
+  font-style: italic;
+  font-weight: 500;
+  max-width: 800px;
+  margin: 0;
+  position: relative; /* Para ficar acima das aspas */
+  z-index: 2;
+}
+.quote-block cite {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--club-red);
+  position: relative;
+  z-index: 2;
+}
+
+/* Parallax Styles */
+.parallax-box {
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.parallax-bg {
+  height: 400px; /* Mais alto que a caixa */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -70px; /* Offset inicial */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(0); /* Promove para camada GPU */
+}
+.parallax-caption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Placeholders de Mídia */
+.video-responsive-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-height: 480px;
+  aspect-ratio: 16 / 9;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.video-responsive-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.audio-card {
+  background: var(--club-blue);
+  border: 1px solid #eee;
+  color: #eee;
+  padding: 16px;
+  margin: 20px 0;
+}
+
+.audio-card h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.audio-card p {
+  margin: 0;
+  color: #eee;
+}
+
+.audio-card audio {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* chapter nav */
+
+.capitulos-panel {
+  margin: 40px 0px;
+  padding: unset;
+}
+
+.chapter-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapter-grid {
+  display: grid;
+  /* Cria colunas responsivas: 
+     - Tenta encaixar o máximo de colunas de 280px.
+     - Em telas maiores, as colunas crescem igualmente (1fr).
+     - Em telas menores, quebra automaticamente.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+.chapter-card {
+  position: relative;
+  height: 400px; /* Altura fixa para os cards */
+  border-radius: var(--radius);
+  overflow: hidden; /* ESSENCIAL para o efeito de zoom */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.chapter-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Overlay gradiente para legibilidade do texto */
+.chapter-card a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+
+  /* Define o estado inicial e a variável CSS que será controlada pelo JS */
+  --zoom-factor: 1;
+  transform: scale(var(--zoom-factor));
+
+  /* Transição suave para o zoom (previne "saltos" do JS) */
+  transition: transform 0.1s linear;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  color: white;
+  z-index: 2; /* Acima do overlay gradiente */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.card-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin: 0;
+  color: white; /* Garante a cor branca */
+}
+
+/* timeline */
+.timeline {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.timeline li {
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+}
+
+/* CTA row */
+.cta-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  background: var(--club-blue);
+  align-content: center;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+.btn.ghost {
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  color: #111;
+}
+
+.timeline {
+  list-style: none; /* Remove os marcadores padrão da lista */
+  padding: 0;
+  margin: 16px 0 0 10px; /* Margem para dar espaço à linha */
+  position: relative; /* Define o contexto de posicionamento para a linha */
+}
+
+/* A linha vertical principal da timeline */
+.timeline::before {
+  content: ""; /* Conteúdo vazio, necessário para o pseudo-elemento */
+  position: absolute;
+  left: 0;
+  top: 5px; /* Ajusta o início da linha */
+  bottom: 5px; /* Ajusta o fim da linha */
+  width: 2px;
+  background-color: #ddd; /* Cor da linha - cinza claro */
+  border-radius: 2px;
+}
+
+/* Cada item (evento) da timeline (o <li>) */
+.timeline li {
+  padding-left: 28px; /* Espaço entre o ponto e o texto */
+  position: relative; /* Contexto de posicionamento para o ponto */
+  margin-bottom: 16px; /* Espaçamento entre os eventos */
+  line-height: 1.4;
+}
+
+/* O "ponto" (círculo) em cada evento */
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px; /* Centraliza o ponto na linha vertical (largura_linha / 2) - (largura_ponto / 2) */
+  top: 4px; /* Alinha o ponto verticalmente com o texto */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%; /* Transforma em círculo */
+  background-color: #fff; /* Fundo branco para "recortar" a linha */
+  border: 3px solid var(--club-red, #cc0000); /* Cor do círculo (usa a variável --club-red se existir) */
+  box-sizing: border-box; /* Garante que a borda não aumente o tamanho */
+  z-index: 1; /* Garante que o ponto fique acima da linha */
+}
+
+/* Estiliza o ano (tag <strong>) */
+.timeline li strong {
+  display: block; /* Faz o ano ficar em sua própria linha (ou pode remover se preferir na mesma linha) */
+  font-family: var(
+    --font-heading,
+    "Roboto Slab",
+    serif
+  ); /* Usa a fonte de título se existir */
+  color: #111;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* footer */
+.site-footer {
+  background: #0f1720;
+  color: #fff;
+  padding: 28px 0;
+  font-family: var(--font-body);
+  text-align: center;
+}
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* small screens */
+@media (max-width: 1100px) {
+  /* Altera a largura máxima do container em telas menores, 
+     se não o 1320px fica estranho */
+  .container {
+    max-width: var(--max-width);
+    padding: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Em telas muito menores, volta ao layout de coluna única */
+  .content-wrap:has(.col-aside) {
+    grid-template-columns: 1fr;
+  }
+  .col-aside {
+    order: 2;
+  }
+  .col-text {
+    order: 1;
+  }
+
+  .quote-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Parallax (removido do JS) */
+[data-parallax] {
+  transform: translateZ(0);
+  will-change: transform;
+}
