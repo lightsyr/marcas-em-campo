@@ -5,7 +5,14 @@ AOS.init();
 
 // Adicionado: Header Transparente no Scroll
 const header = document.getElementById("site-header");
-let camera
+let camera, scene, renderer;
+
+let isUserInteracting = false,
+  onPointerDownMouseX = 0, onPointerDownMouseY = 0,
+  lon = 0, onPointerDownLon = 0,
+  lat = 0, onPointerDownLat = 0,
+  phi = 0, theta = 0;
+
 
 window.addEventListener("scroll", () => {
   // Adiciona a classe 'scrolled' após rolar 50 pixels
@@ -15,21 +22,30 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 
-  if (camera) {
-    // Normaliza a posição do scroll (valor de 0 a 1)
-    const scrollPercent =
-      window.scrollY /
-      (document.documentElement.scrollHeight - window.innerHeight);
-
-    if (scrollPercent > 20) scrollPercent = 20;
-
-    // Define a rotação.
-    // Ajuste o multiplicador (ex: Math.PI) para mais ou menos rotação.
-    const rotationY = scrollPercent * Math.PI * 16;
-
-    // ATUALIZADO: Rotaciona a própria câmera no eixo Y (olhar para esquerda/direita)
-    camera.rotation.y = rotationY;
+  // 1. Se a câmera ainda não carregou ou se o usuário está
+  //    arrastando ativamente, ignora o evento de scroll.
+  if (!camera || isUserInteracting) {
+    return;
   }
+
+  // Calcula a altura total rolável
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+  // Evita divisão por zero se a página não tiver scroll
+  if (scrollableHeight <= 0) return;
+
+  // 2. Normaliza a posição do scroll (valor de 0 a 1)
+  const scrollPercent = window.scrollY / scrollableHeight;
+
+  // 3. Define a rotação em GRAUS (pois 'lon' é tratada como graus)
+  //    Ajuste o multiplicador (360) para mais ou menos rotação.
+  //    (Seu valor original de Math.PI * 16 era em radianos e muito alto,
+  //    equivalendo a 2880 graus. 360 significa uma volta completa).
+  const rotationDeg = scrollPercent * 360;
+
+  // 4. ATUALIZADO: Define o 'lon' (longitude)
+  //    O loop 'animate' vai usar esse valor para girar a câmera.
+  lon = rotationDeg;
 });
 
 // Mobile menu toggle (Mantido)
@@ -69,14 +85,27 @@ if (revenueCtx && window.Chart) {
 }
 
 
-let controls;
-let renderer;
-let scene;
-
-//init();
+init();
 
 function init() {
-  const container = document.getElementById("arena");
+
+  const container = document.getElementById('arena');
+
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
+
+  scene = new THREE.Scene();
+
+  const geometry = new THREE.SphereGeometry(500, 60, 40);
+  // invert the geometry on the x-axis so that all of the faces point inward
+  geometry.scale(- 1, 1, 1);
+
+  const texture = new THREE.TextureLoader().load('assets/panorama2.png');
+  texture.colorSpace = THREE.SRGBColorSpace;
+  const material = new THREE.MeshBasicMaterial({ map: texture });
+
+  const mesh = new THREE.Mesh(geometry, material);
+
+  scene.add(mesh);
 
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -84,85 +113,73 @@ function init() {
   renderer.setAnimationLoop(animate);
   container.appendChild(renderer.domElement);
 
-  scene = new THREE.Scene();
+  container.style.touchAction = 'none';
+  container.addEventListener('pointerdown', onPointerDown);
 
-  camera = new THREE.PerspectiveCamera(
-    90,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    100
-  );
-  camera.position.z = 0.01;
+  window.addEventListener('resize', onWindowResize);
 
-  controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableZoom = false;
-  controls.enablePan = false;
-  controls.enableDamping = true;
-  controls.rotateSpeed = -0.25;
-
-  const textures = getTexturesFromAtlasFile(
-    "https://threejs.org/examples/textures/cube/sun_temple_stripe.jpg",
-    6
-  );
-
-  const materials = [];
-
-  for (let i = 0; i < 6; i++) {
-    materials.push(new THREE.MeshBasicMaterial({ map: textures[i] }));
-  }
-
-  const skyBox = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), materials);
-  skyBox.geometry.scale(1, 1, -1);
-  scene.add(skyBox);
-
-  window.addEventListener("resize", onWindowResize);
-}
-
-function getTexturesFromAtlasFile(atlasImgUrl, tilesNum) {
-  const textures = [];
-
-  for (let i = 0; i < tilesNum; i++) {
-    textures[i] = new THREE.Texture();
-  }
-
-  new THREE.ImageLoader().load(atlasImgUrl, (image) => {
-    let canvas, context;
-    const tileWidth = image.height;
-
-    for (let i = 0; i < textures.length; i++) {
-      canvas = document.createElement("canvas");
-      context = canvas.getContext("2d");
-      canvas.height = tileWidth;
-      canvas.width = tileWidth;
-      context.drawImage(
-        image,
-        tileWidth * i,
-        0,
-        tileWidth,
-        tileWidth,
-        0,
-        0,
-        tileWidth,
-        tileWidth
-      );
-      textures[i].colorSpace = THREE.SRGBColorSpace;
-      textures[i].image = canvas;
-      textures[i].needsUpdate = true;
-    }
-  });
-
-  return textures;
 }
 
 function onWindowResize() {
+
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
+
 }
+
+function onPointerDown(event) {
+
+  if (event.isPrimary === false) return;
+
+  isUserInteracting = true;
+
+  onPointerDownMouseX = event.clientX;
+  onPointerDownMouseY = event.clientY;
+
+  onPointerDownLon = lon;
+  onPointerDownLat = lat;
+
+  document.addEventListener('pointermove', onPointerMove);
+  document.addEventListener('pointerup', onPointerUp);
+
+}
+
+function onPointerMove(event) {
+
+  if (event.isPrimary === false) return;
+
+  lon = (onPointerDownMouseX - event.clientX) * 0.1 + onPointerDownLon;
+  lat = (event.clientY - onPointerDownMouseY) * 0.1 + onPointerDownLat;
+
+}
+
+function onPointerUp(event) {
+
+  if (event.isPrimary === false) return;
+
+  isUserInteracting = false;
+
+  document.removeEventListener('pointermove', onPointerMove);
+  document.removeEventListener('pointerup', onPointerUp);
+
+}
+
 
 function animate() {
-  controls.update(); // required when damping is enabled
+
+  lat = Math.max(- 85, Math.min(85, lat));
+  phi = THREE.MathUtils.degToRad(90 - lat);
+  theta = THREE.MathUtils.degToRad(lon);
+
+  const x = 500 * Math.sin(phi) * Math.cos(theta);
+  const y = 500 * Math.cos(phi);
+  const z = 500 * Math.sin(phi) * Math.sin(theta);
+
+  camera.lookAt(x, y, z);
 
   renderer.render(scene, camera);
+
 }
+

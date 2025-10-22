@@ -78,6 +78,23 @@ body {
 #menu-toggle {
   color: #000;
   text-shadow: none;
+  cursor: pointer;
+}
+
+#menu-toggle svg{
+  width: 64px;
+  height: 64px;
+}
+
+.i3d-instruction{
+  color: #fff;
+  text-shadow: none;
+  font-size: clamp(0.8rem, 5vw, 1.2rem);
+}
+
+.i3d-instruction svg{
+  width: 64px;
+  height: 64px;
 }
 
 .sticky nav a,

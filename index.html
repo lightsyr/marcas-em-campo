@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>
-      Marcas em Campo — Bahia e Vitória na Era da Comunicação Digital
-    </title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>
+    Marcas em Campo — Bahia e Vitória na Era da Comunicação Digital
+  </title>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
-      rel="stylesheet"
-    />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"
-      defer
-    ></script>
 
-    <script type="importmap">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js" defer></script>
+
+  <script type="importmap">
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
@@ -37,439 +29,171 @@
       }
     </script>
 
-    <script src="script.js" defer type="module"></script>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header id="site-header" class="sticky">
-      <div class="header-inner">
-        <div class="brand">
-          <div class="logo-placeholder" aria-hidden="true">MC</div>
-          <div class="site-title">Marcas em Campo</div>
-        </div>
+  <script src="script.js" defer type="module"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-        <nav id="main-nav" class="nav">
-          <button id="menu-toggle" aria-label="Abrir menu">☰</button>
-          <ul id="nav-list">
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#intro">Introdução</a></li>
-            <li><a href="#jornalismo">Jornalismo</a></li>
-            <li><a href="#influencers">Influencers</a></li>
-            <li><a href="#marketing">Marketing</a></li>
-            <li><a href="#resumo">Resumo</a></li>
-          </ul>
-        </nav>
+<body>
+  <header id="site-header" class="sticky">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-placeholder" aria-hidden="true">MC</div>
+        <div class="site-title">Marcas em Campo</div>
       </div>
-    </header>
 
-    <main>
-      <section id="hero" class="panel hero-panel" data-parallax>
-        <div class="hero-media">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Arena_Fonte_Nova_view_from_lake_%28zoom%29.jpg/1200px-Arena_Fonte_Nova_view_from_lake_%28zoom%29.jpg" alt="">
-          <canvas id="arena"></canvas>
+      <nav id="main-nav" class="nav">
+        <button id="menu-toggle" aria-label="Abrir menu">
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            width="48" height="48" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+          </svg>
+
+        </button>
+        <ul id="nav-list">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#intro">Introdução</a></li>
+          <li><a href="#jornalismo">Jornalismo</a></li>
+          <li><a href="#influencers">Influencers</a></li>
+          <li><a href="#marketing">Marketing</a></li>
+          <li><a href="#resumo">Resumo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="panel hero-panel" data-parallax>
+      <div class="hero-media">
+        <div id="arena"></div>
+      </div>
+      <div class="hero-overlay container" data-aos="fade-in" data-aos-delay="300">
+        <h1>
+          <span>Marcas em Campo</span> <br />Bahia e
+          Vitória na Era da Comunicação Digital
+        </h1>
+        <p class="subtitle">
+          Como a paixão da torcida conecta jornalismo, marketing e redes
+          sociais
+        </p>
+
+        <div class="i3d-instruction">
+          <p>Clique e Araste para interagir</p>
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M9.98189 4.50602c1.24881-.67469 2.78741-.67469 4.03621 0l3.9638 2.14148c.3634.19632.6862.44109.9612.72273l-6.9288 3.60207L5.20654 7.225c.2403-.22108.51215-.41573.81157-.5775l3.96378-2.14148ZM4.16678 8.84364C4.05757 9.18783 4 9.5493 4 9.91844v4.28296c0 1.3494.7693 2.5963 2.01811 3.2709l3.96378 2.1415c.32051.1732.66011.3019 1.00901.3862v-7.4L4.16678 8.84364ZM13.009 20c.3489-.0843.6886-.213 1.0091-.3862l3.9638-2.1415C19.2307 16.7977 20 15.5508 20 14.2014V9.91844c0-.30001-.038-.59496-.1109-.87967L13.009 12.6155V20Z" />
+          </svg>
+
         </div>
-        <div
-          class="hero-overlay container"
-          data-aos="fade-in"
-          data-aos-delay="300"
-        >
-          <h1>
-            <span>Marcas em Campo</span> <br />Bahia e
-            Vitória na Era da Comunicação Digital
-          </h1>
-          <p class="subtitle">
-            Como a paixão da torcida conecta jornalismo, marketing e redes
-            sociais
-          </p>
-        </div>
-      </section>
 
-      <section id="intro" class="panel panel-alt">
-        <div>
-          <div class="col col-text">
-            <h2 class="title bg-intro">Paixão como fio condutor</h2>
-            <div
-              class="article-text content-wrap container"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <p>
-                É domingo em Salvador. O sol nasceu e as ruas já ganham cor, de
-                azul, vermelho e branco, de vermelho e preto.
-              </p>
-              <p>
-                Em Canabrava, um torcedor do Vitória acorda antes mesmo do
-                despertador. Abre o armário e escolhe a camisa com cuidado, a
-                mesma de tantas histórias, de vitórias e tropeços. Pega a
-                bandeira, confere se o celular está carregado e segue rumo ao
-                estacionamento do Barradão. Hoje é dia de jogo!
-              </p>
-              <p>
-                Do outro lado da cidade, em Brotas, uma torcedora do Bahia se
-                arruma com o mesmo ritual. Combina o look com a namorada, ajusta
-                o lenço azul no cabelo e grava o primeiro story do dia: “Hoje
-                tem Esquadrão na Fonte!”
-              </p>
-              <p>
-                Cada um com sua cor, sua história, sua fé no resultado. Eles não
-                se encontram nas arquibancadas, mas se cruzam nas redes, nas
-                transmissões ao vivo, nos comentários que viralizam. Ali, entre
-                câmeras e celulares, o futebol se reinventa e vira conteúdo,
-                vira conversa, vira comunidade.
-              </p>
-              <p>
-                O amor pelo clube agora também é um post, um vídeo, uma análise
-                no podcast, um corte no Reels. Essa é a nova arquibancada. Um
-                espaço onde o torcedor fala, cria, comenta e influencia. Onde o
-                grito que antes parava no alambrado atravessa timelines e
-                transmissões. E onde Bahia e Vitória, dois gigantes de histórias
-                e paixões opostas, aprendem a dialogar com uma torcida que já
-                não só assiste, mas participa, questiona, cria e move o jogo
-                fora das quatro linhas.
-              </p>
-              <p>
-                É nesse cenário que nasce esta reportagem, uma produção Snowfall
-                criada por três estudantes de jornalismo, que percorrem os
-                bastidores da comunicação esportiva na Bahia para entender como
-                a paixão das torcidas se transforma em estratégia, conteúdo e
-                conexão digital.
-              </p>
+      </div>
+    </section>
 
-              <section id="capitulos" class="panel capitulos-panel">
-                <div class="container">
-                  <nav class="chapter-nav">
-                    <ul class="chapter-grid">
-                      <li
-                        class="chapter-card"
-                        data-zoom-scroll
-                        data-aos="fade-up"
-                        data-aos-delay="0"
-                      >
-                        <a href="#jornalismo">
-                          <div
-                            class="card-bg"
-                            style="
-                              background-image: url('https://images.pexels.com/photos/583847/pexels-photo-583847.jpeg');
-                            "
-                          ></div>
-                          <div class="card-content">
-                            <h3>Jornalismo e Estratégias Digitais</h3>
-                          </div>
-                        </a>
-                      </li>
-
-                      <li
-                        class="chapter-card"
-                        data-zoom-scroll
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                      >
-                        <a href="#influencers">
-                          <div
-                            class="card-bg"
-                            style="
-                              background-image: url('https://images.pexels.com/photos/4549408/pexels-photo-4549408.jpeg');
-                            "
-                          ></div>
-                          <div class="card-content">
-                            <h3>Influencers e a Paixão Compartilhada</h3>
-                          </div>
-                        </a>
-                      </li>
-
-                      <li
-                        class="chapter-card"
-                        data-zoom-scroll
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                      >
-                        <a href="#marketing">
-                          <div
-                            class="card-bg"
-                            style="
-                              background-image: url('https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg');
-                            "
-                          ></div>
-                          <div class="card-content">
-                            <h3>Marketing Esportivo</h3>
-                          </div>
-                        </a>
-                      </li>
-
-                      <li
-                        class="chapter-card"
-                        data-zoom-scroll
-                        data-aos="fade-up"
-                        data-aos-delay="300"
-                      >
-                        <a href="#resumo">
-                          <div
-                            class="card-bg"
-                            style="
-                              background-image: url('https://images.pexels.com/photos/261857/pexels-photo-261857.jpeg');
-                            "
-                          ></div>
-                          <div class="card-content">
-                            <h3>Resumo e Próximos Passos</h3>
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </section>
-
-              <section>
-                <div
-                  class="video-responsive-container"
-                  style="margin-top: 24px"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <iframe
-                    src="https://www.youtube.com/embed/9bZkp7q19f0?si=p8XmN_YpM-S3c-0K"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-                <figcaption class="parallax-caption" style="margin-top: 8px">
-                  Simulação: Conteúdo de Influencer (Marinho Júnior)
-                </figcaption>
-              </section>
-
-              <p>
-                Nesse novo cenário, surgem os criadores de conteúdo, torcedores
-                que viraram comunicadores, e comunicadores que se tornaram
-                pontes entre o clube e a torcida.
-              </p>
-              <p>
-                Como é ocupar esse espaço de fala independente dentro de um
-                ecossistema digital que cresce junto com a paixão?
-              </p>
-              <p>
-                Quem responde é Marinho Júnior, criador de conteúdo do Bahia,
-                que fala sobre o papel das mídias alternativas e a relação com a
-                comunicação oficial do clube.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="jornalismo" class="panel">
-        <div>
-          <div class="col col-text">
-            <h2 class="title bg-jornalismo">
-              Jornalismo e estratégias digitais integradas
-            </h2>
-
-            <div
-              class="article-text content-wrap container"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <p>
-                No futebol baiano, a forma como a informação circula já não cabe
-                mais em um único formato. O que antes chegava pelo rádio, pela
-                TV ou pelos jornais impressos agora se espalha pelas redes
-                sociais, pelos podcasts, pelas transmissões ao vivo e até pelos
-                grupos de WhatsApp.
-              </p>
-              <p>
-                O jornalismo esportivo tradicional e o conteúdo digital
-                aprenderam a dividir, e muitas vezes a compartilhar, o mesmo
-                campo. O resultado dessa transformação é uma comunicação mais
-                ágil, multifacetada e integrada, onde cada formato se
-                retroalimenta do outro.
-              </p>
-
-              <div class="card audio-card" data-aos="fade-up">
-                <h4>Exemplo: Comentário de Rádio (Podcast)</h4>
-                <p class="muted">
-                  Simulação de um clipe de áudio de programa esportivo.
-                </p>
-                <audio
-                  controls
-                  src="https://actions.google.com/sounds/v1/ambiences/stadium_soccer_game.ogg"
-                >
-                  Seu navegador não suporta o elemento de áudio.
-                </audio>
-              </div>
-
-              <p>
-                Uma entrevista na TV pode se transformar em um corte no
-                Instagram; um comentário no rádio vira pauta em um canal de
-                influenciador; e uma notícia publicada em um portal logo ganha
-                nova vida em um podcast de torcida. Mais do que competir por
-                espaço, essas mídias hoje se complementam, cada uma com sua
-                própria força, linguagem e alcance.
-              </p>
-
-              <p>
-                Entre os profissionais que vivenciaram essa transição de dentro,
-                está Rafael Curvello, que foi gerente de marketing do Vitória
-                entre 2021 e 2023. Durante sua gestão, ele foi um dos
-                responsáveis por reposicionar a imagem do clube e por aproximar
-                a marca rubro-negra tanto da imprensa tradicional quanto dos
-                criadores de conteúdo digital. Para ele:
-              </p>
-
-
-              <section class="col-grid">
-                <blockquote class="quote-block" data-aos="zoom-in">
-                  <p>
-                    O influenciador tem agilidade e fala diretamente com o
-                    torcedor, enquanto a TV e o rádio têm um alcance imenso. O
-                    segredo não está em escolher um ou outro, mas em entender como
-                    essas duas forças podem trabalhar juntas de forma
-                    complementar.
-                  </p>
-                  <cite>Rafael Curvello</cite>
-                </blockquote>
-  
-                <section>
-                  <div
-                    class="video-responsive-container"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                  >
-                    <iframe
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=f-fCqN9eG-8Jv3qA"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    >
-                    </iframe>
-                  </div>
-                  <figcaption
-                    class="parallax-caption"
-                    style="text-align: left; margin-top: 8px"
-                  >
-                    Simulação: Entrevista com Rafael Curvello
-                  </figcaption>
-  
-                </section>
-
-              </section>
-
-
-              <p>
-                Hoje, o torcedor não quer apenas assistir ao jogo: ele quer
-                participar dele. Quer sentir o clima do vestiário, acompanhar os
-                treinos, ouvir o jogador fora de campo e viver o clube em tempo
-                real.
-              </p>
-              <p>
-                Foi com essa visão que o Vitória iniciou uma das transformações
-                mais marcantes de sua história recente. [...]
-              </p>
-              <p>
-                Essa nova filosofia de comunicação transformou a forma como o
-                clube se apresentava. A TV Vitória passou a produzir conteúdos
-                inéditos: treinos, viagens, pré-jogos, entrevistas exclusivas e
-                transmissões das categorias de base, tudo com a linguagem e
-                identidade rubro-negra, aproximando o torcedor da rotina do
-                clube.
-              </p>
-
-              <div class="quote-list">
-                <blockquote class="quote-block" data-aos="fade-up">
-                  <p>
-                    A gente tinha um objetivo muito claro: aproximar o torcedor
-                    do clube de forma autêntica. A missão era fazer o torcedor
-                    se sentir parte do Vitória — mostrar que ele não é apenas um
-                    espectador, mas um pedaço vivo dessa história. E foi
-                    gratificante ver na prática o impacto disso: a experiência
-                    de conectar o torcedor aos jogadores, ao campo, aos
-                    bastidores.
-                  </p>
-                  <cite>Rafael Curvello</cite>
-                </blockquote>
-
-                <blockquote
-                  class="quote-block"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  <p>
-                    Antes, o Vitória era muito fechado. Nós queríamos quebrar
-                    esse padrão — abrir o clube, mostrar o dia a dia, as
-                    histórias que acontecem longe das câmeras da imprensa.
-                  </p>
-                  <cite>Rafael Curvello</cite>
-                </blockquote>
-              </div>
-
-              <p>
-                Os resultados não demoraram a aparecer. O canal oficial do clube
-                no YouTube ultrapassou a marca de 50 mil inscritos nesse
-                período, reflexo de um conteúdo mais dinâmico, autêntico e
-                conectado à torcida.
-              </p>
-              <p>
-                Com acesso direto aos bastidores e liberdade criativa, a TV
-                Vitória se consolidou como um verdadeiro canal de pertencimento.
-                Não se tratava apenas de informar, mas de emocionar, representar
-                e valorizar o torcedor rubro-negro.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="influencers" class="panel panel-alt">
+    <section id="intro" class="panel panel-alt">
+      <div>
         <div class="col col-text">
-          <h2 class="title bg-influencers">
-            Influencers e a paixão compartilhada
-          </h2>
+          <h2 class="title bg-intro">Paixão como fio condutor</h2>
+          <div class="article-text content-wrap container" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              É domingo em Salvador. O sol nasceu e as ruas já ganham cor, de
+              azul, vermelho e branco, de vermelho e preto.
+            </p>
+            <p>
+              Em Canabrava, um torcedor do Vitória acorda antes mesmo do
+              despertador. Abre o armário e escolhe a camisa com cuidado, a
+              mesma de tantas histórias, de vitórias e tropeços. Pega a
+              bandeira, confere se o celular está carregado e segue rumo ao
+              estacionamento do Barradão. Hoje é dia de jogo!
+            </p>
+            <p>
+              Do outro lado da cidade, em Brotas, uma torcedora do Bahia se
+              arruma com o mesmo ritual. Combina o look com a namorada, ajusta
+              o lenço azul no cabelo e grava o primeiro story do dia: “Hoje
+              tem Esquadrão na Fonte!”
+            </p>
+            <p>
+              Cada um com sua cor, sua história, sua fé no resultado. Eles não
+              se encontram nas arquibancadas, mas se cruzam nas redes, nas
+              transmissões ao vivo, nos comentários que viralizam. Ali, entre
+              câmeras e celulares, o futebol se reinventa e vira conteúdo,
+              vira conversa, vira comunidade.
+            </p>
+            <p>
+              O amor pelo clube agora também é um post, um vídeo, uma análise
+              no podcast, um corte no Reels. Essa é a nova arquibancada. Um
+              espaço onde o torcedor fala, cria, comenta e influencia. Onde o
+              grito que antes parava no alambrado atravessa timelines e
+              transmissões. E onde Bahia e Vitória, dois gigantes de histórias
+              e paixões opostas, aprendem a dialogar com uma torcida que já
+              não só assiste, mas participa, questiona, cria e move o jogo
+              fora das quatro linhas.
+            </p>
+            <p>
+              É nesse cenário que nasce esta reportagem, uma produção Snowfall
+              criada por três estudantes de jornalismo, que percorrem os
+              bastidores da comunicação esportiva na Bahia para entender como
+              a paixão das torcidas se transforma em estratégia, conteúdo e
+              conexão digital.
+            </p>
 
-          <div
-            class="article-text container content-wrap"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <p>
-              Nesse espaço digital, surgem os criadores de conteúdo — torcedores
-              que, por meio de memes, vídeos, lives e análises, ajudam a
-              construir a narrativa em torno dos clubes. Eles participam da
-              conversa, amplificam debates e, muitas vezes, moldam expectativas.
-            </p>
-            <p>
-              Os influencers atuam como multiplicadores: um corte certeiro, um
-              comentário polêmico, um vídeo engraçado pode viralizar e ganhar
-              proporções que transcendem o jogo em si. A partir daí, marcas e
-              clubes observam esse comportamento e dialogam com esse ecossistema
-              para construir campanhas mais autênticas.
-            </p>
-            <p>
-              Fontes sugeridas para entender esse universo: Vitu ECV, Matheus
-              Barbaço, Marinho Júnior — todos nomes que trazem voz ativa na
-              produção de conteúdo ligado ao Vitória e ao Bahia.
-            </p>
-          </div>
+            <section id="capitulos" class="panel capitulos-panel">
+              <div class="container">
+                <nav class="chapter-nav">
+                  <ul class="chapter-grid">
+                    <li class="chapter-card" data-zoom-scroll data-aos="fade-up" data-aos-delay="0">
+                      <a href="#jornalismo">
+                        <div class="card-bg" style="
+                              background-image: url('https://images.pexels.com/photos/583847/pexels-photo-583847.jpeg');
+                            "></div>
+                        <div class="card-content">
+                          <h3>Jornalismo e Estratégias Digitais</h3>
+                        </div>
+                      </a>
+                    </li>
 
-          <div class="multimedia container">
+                    <li class="chapter-card" data-zoom-scroll data-aos="fade-up" data-aos-delay="100">
+                      <a href="#influencers">
+                        <div class="card-bg" style="
+                              background-image: url('https://images.pexels.com/photos/4549408/pexels-photo-4549408.jpeg');
+                            "></div>
+                        <div class="card-content">
+                          <h3>Influencers e a Paixão Compartilhada</h3>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="chapter-card" data-zoom-scroll data-aos="fade-up" data-aos-delay="200">
+                      <a href="#marketing">
+                        <div class="card-bg" style="
+                              background-image: url('https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg');
+                            "></div>
+                        <div class="card-content">
+                          <h3>Marketing Esportivo</h3>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="chapter-card" data-zoom-scroll data-aos="fade-up" data-aos-delay="300">
+                      <a href="#resumo">
+                        <div class="card-bg" style="
+                              background-image: url('https://images.pexels.com/photos/261857/pexels-photo-261857.jpeg');
+                            "></div>
+                        <div class="card-content">
+                          <h3>Resumo e Próximos Passos</h3>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </section>
+
             <section>
-              <div
-                class="video-responsive-container"
-                style="margin-top: 24px"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/9bZkp7q19f0?si=p8XmN_YpM-S3c-0K"
-                  title="YouTube video player"
+              <div class="video-responsive-container" style="margin-top: 24px" data-aos="fade-up" data-aos-delay="200">
+                <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?si=p8XmN_YpM-S3c-0K" title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                >
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
               </div>
               <figcaption class="parallax-caption" style="margin-top: 8px">
@@ -477,174 +201,357 @@
               </figcaption>
             </section>
 
-            <section>
-              <div
-                class="card col col-aside container content-wrap article-text"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <h4>Galeria / Memes</h4>
+            <p>
+              Nesse novo cenário, surgem os criadores de conteúdo, torcedores
+              que viraram comunicadores, e comunicadores que se tornaram
+              pontes entre o clube e a torcida.
+            </p>
+            <p>
+              Como é ocupar esse espaço de fala independente dentro de um
+              ecossistema digital que cresce junto com a paixão?
+            </p>
+            <p>
+              Quem responde é Marinho Júnior, criador de conteúdo do Bahia,
+              que fala sobre o papel das mídias alternativas e a relação com a
+              comunicação oficial do clube.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="jornalismo" class="panel">
+      <div>
+        <div class="col col-text">
+          <h2 class="title bg-jornalismo">
+            Jornalismo e estratégias digitais integradas
+          </h2>
+
+          <div class="article-text content-wrap container" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              No futebol baiano, a forma como a informação circula já não cabe
+              mais em um único formato. O que antes chegava pelo rádio, pela
+              TV ou pelos jornais impressos agora se espalha pelas redes
+              sociais, pelos podcasts, pelas transmissões ao vivo e até pelos
+              grupos de WhatsApp.
+            </p>
+            <p>
+              O jornalismo esportivo tradicional e o conteúdo digital
+              aprenderam a dividir, e muitas vezes a compartilhar, o mesmo
+              campo. O resultado dessa transformação é uma comunicação mais
+              ágil, multifacetada e integrada, onde cada formato se
+              retroalimenta do outro.
+            </p>
+
+            <div class="card audio-card" data-aos="fade-up">
+              <h4>Exemplo: Comentário de Rádio (Podcast)</h4>
+              <p class="muted">
+                Simulação de um clipe de áudio de programa esportivo.
+              </p>
+              <audio controls src="https://actions.google.com/sounds/v1/ambiences/stadium_soccer_game.ogg">
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
+            </div>
+
+            <p>
+              Uma entrevista na TV pode se transformar em um corte no
+              Instagram; um comentário no rádio vira pauta em um canal de
+              influenciador; e uma notícia publicada em um portal logo ganha
+              nova vida em um podcast de torcida. Mais do que competir por
+              espaço, essas mídias hoje se complementam, cada uma com sua
+              própria força, linguagem e alcance.
+            </p>
+
+            <p>
+              Entre os profissionais que vivenciaram essa transição de dentro,
+              está Rafael Curvello, que foi gerente de marketing do Vitória
+              entre 2021 e 2023. Durante sua gestão, ele foi um dos
+              responsáveis por reposicionar a imagem do clube e por aproximar
+              a marca rubro-negra tanto da imprensa tradicional quanto dos
+              criadores de conteúdo digital. Para ele:
+            </p>
+
+
+            <section class="col-grid">
+              <blockquote class="quote-block" data-aos="zoom-in">
+                <p>
+                  O influenciador tem agilidade e fala diretamente com o
+                  torcedor, enquanto a TV e o rádio têm um alcance imenso. O
+                  segredo não está em escolher um ou outro, mas em entender como
+                  essas duas forças podem trabalhar juntas de forma
+                  complementar.
+                </p>
+                <cite>Rafael Curvello</cite>
+              </blockquote>
+
+              <section>
+                <div class="video-responsive-container" data-aos="fade-up" data-aos-delay="100">
+                  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=f-fCqN9eG-8Jv3qA"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                  </iframe>
+                </div>
+                <figcaption class="parallax-caption" style="text-align: left; margin-top: 8px">
+                  Simulação: Entrevista com Rafael Curvello
+                </figcaption>
+
+              </section>
+
+            </section>
+
+
+            <p>
+              Hoje, o torcedor não quer apenas assistir ao jogo: ele quer
+              participar dele. Quer sentir o clima do vestiário, acompanhar os
+              treinos, ouvir o jogador fora de campo e viver o clube em tempo
+              real.
+            </p>
+            <p>
+              Foi com essa visão que o Vitória iniciou uma das transformações
+              mais marcantes de sua história recente. [...]
+            </p>
+            <p>
+              Essa nova filosofia de comunicação transformou a forma como o
+              clube se apresentava. A TV Vitória passou a produzir conteúdos
+              inéditos: treinos, viagens, pré-jogos, entrevistas exclusivas e
+              transmissões das categorias de base, tudo com a linguagem e
+              identidade rubro-negra, aproximando o torcedor da rotina do
+              clube.
+            </p>
+
+            <div class="quote-list">
+              <blockquote class="quote-block" data-aos="fade-up">
+                <p>
+                  A gente tinha um objetivo muito claro: aproximar o torcedor
+                  do clube de forma autêntica. A missão era fazer o torcedor
+                  se sentir parte do Vitória — mostrar que ele não é apenas um
+                  espectador, mas um pedaço vivo dessa história. E foi
+                  gratificante ver na prática o impacto disso: a experiência
+                  de conectar o torcedor aos jogadores, ao campo, aos
+                  bastidores.
+                </p>
+                <cite>Rafael Curvello</cite>
+              </blockquote>
+
+              <blockquote class="quote-block" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                  Antes, o Vitória era muito fechado. Nós queríamos quebrar
+                  esse padrão — abrir o clube, mostrar o dia a dia, as
+                  histórias que acontecem longe das câmeras da imprensa.
+                </p>
+                <cite>Rafael Curvello</cite>
+              </blockquote>
+            </div>
+
+            <p>
+              Os resultados não demoraram a aparecer. O canal oficial do clube
+              no YouTube ultrapassou a marca de 50 mil inscritos nesse
+              período, reflexo de um conteúdo mais dinâmico, autêntico e
+              conectado à torcida.
+            </p>
+            <p>
+              Com acesso direto aos bastidores e liberdade criativa, a TV
+              Vitória se consolidou como um verdadeiro canal de pertencimento.
+              Não se tratava apenas de informar, mas de emocionar, representar
+              e valorizar o torcedor rubro-negro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="influencers" class="panel panel-alt">
+      <div class="col col-text">
+        <h2 class="title bg-influencers">
+          Influencers e a paixão compartilhada
+        </h2>
+
+        <div class="article-text container content-wrap" data-aos="fade-up" data-aos-delay="100">
+          <p>
+            Nesse espaço digital, surgem os criadores de conteúdo — torcedores
+            que, por meio de memes, vídeos, lives e análises, ajudam a
+            construir a narrativa em torno dos clubes. Eles participam da
+            conversa, amplificam debates e, muitas vezes, moldam expectativas.
+          </p>
+          <p>
+            Os influencers atuam como multiplicadores: um corte certeiro, um
+            comentário polêmico, um vídeo engraçado pode viralizar e ganhar
+            proporções que transcendem o jogo em si. A partir daí, marcas e
+            clubes observam esse comportamento e dialogam com esse ecossistema
+            para construir campanhas mais autênticas.
+          </p>
+          <p>
+            Fontes sugeridas para entender esse universo: Vitu ECV, Matheus
+            Barbaço, Marinho Júnior — todos nomes que trazem voz ativa na
+            produção de conteúdo ligado ao Vitória e ao Bahia.
+          </p>
+        </div>
+
+        <div class="multimedia container">
+          <section>
+            <div class="video-responsive-container" style="margin-top: 24px" data-aos="fade-up" data-aos-delay="200">
+              <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?si=p8XmN_YpM-S3c-0K" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+            </div>
+            <figcaption class="parallax-caption" style="margin-top: 8px">
+              Simulação: Conteúdo de Influencer (Marinho Júnior)
+            </figcaption>
+          </section>
+
+          <section>
+            <div class="card col col-aside container content-wrap article-text" data-aos="fade-up" data-aos-delay="100">
+              <h4>Galeria / Memes</h4>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="marketing" class="panel">
+      <div>
+        <div>
+          <h2 class="title bg-marketing">
+            Marketing esportivo — paixão que gera resultados
+          </h2>
+
+          <div class="article-text container content-wrap" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              O que começa como paixão se transforma em valor econômico e
+              institucional. Patrocínios, merchandising, assinaturas digitais,
+              vendas de camisas e campanhas institucionais são formas de
+              monetizar esse engajamento emocional.
+            </p>
+            <p>
+              O objetivo do marketing esportivo é transformar afeto em ação:
+              sócios-torcedores, compra de produtos oficiais, assinatura de
+              conteúdos exclusivos, participação em promoções e campanhas
+              sociais que ampliam o alcance da marca do clube.
+            </p>
+            <p>
+              Em campanhas bem-sucedidas, o marketing integra jornalismo e
+              conteúdo gerado pela torcida: uma ação que começa em uma matéria
+              pode ganhar força nas redes, virar meme e se transformar em
+              vendas e visibilidade para patrocinadores.
+            </p>
+            <p>
+              As ferramentas visuais (gráficos animados, linha do tempo
+              interativa) ajudam a traduzir esses resultados de forma clara e
+              persuasiva.
+            </p>
+            <p>
+              Fontes de contato para esse bloco: Michelle Duran, Ulisses Gama,
+              Leo Santiago, Marinho Júnior, Erich Betting (marketing
+              esportivo).
+            </p>
+
+            <section class="col-grid">
+              <div class="card">
+                <h4>Gráfico Simulado (Chart.js)</h4>
+                <p>
+                  Receita, vendas de produtos oficiais, sócios, engajamento
+                  digital e impacto das campanhas.
+                </p>
+                <canvas id="chartRevenue" width="300" height="180" data-aos="fade-up"></canvas>
+              </div>
+
+              <div class="card small">
+                <h4>Linha do tempo</h4>
+                <ul class="timeline">
+                  <li data-aos="fade-up" data-aos-delay="100">
+                    <strong>2019</strong> — Campanha X
+                  </li>
+                  <li data-aos="fade-up" data-aos-delay="200">
+                    <strong>2021</strong> — Rebranding do Vitória (Curvello)
+                  </li>
+                  <li data-aos="fade-up" data-aos-delay="300">
+                    <strong>2023</strong> — Campanha "Meu Sangue é
+                    Rubro-Negro"
+                  </li>
+                  <li data-aos="fade-up" data-aos-delay="400">
+                    <strong>2024</strong> — Ação digital integrada
+                  </li>
+                </ul>
               </div>
             </section>
           </div>
         </div>
-      </section>
-
-      <section id="marketing" class="panel">
-        <div>
-          <div>
-            <h2 class="title bg-marketing">
-              Marketing esportivo — paixão que gera resultados
-            </h2>
-
-            <div
-              class="article-text container content-wrap"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <p>
-                O que começa como paixão se transforma em valor econômico e
-                institucional. Patrocínios, merchandising, assinaturas digitais,
-                vendas de camisas e campanhas institucionais são formas de
-                monetizar esse engajamento emocional.
-              </p>
-              <p>
-                O objetivo do marketing esportivo é transformar afeto em ação:
-                sócios-torcedores, compra de produtos oficiais, assinatura de
-                conteúdos exclusivos, participação em promoções e campanhas
-                sociais que ampliam o alcance da marca do clube.
-              </p>
-              <p>
-                Em campanhas bem-sucedidas, o marketing integra jornalismo e
-                conteúdo gerado pela torcida: uma ação que começa em uma matéria
-                pode ganhar força nas redes, virar meme e se transformar em
-                vendas e visibilidade para patrocinadores.
-              </p>
-              <p>
-                As ferramentas visuais (gráficos animados, linha do tempo
-                interativa) ajudam a traduzir esses resultados de forma clara e
-                persuasiva.
-              </p>
-              <p>
-                Fontes de contato para esse bloco: Michelle Duran, Ulisses Gama,
-                Leo Santiago, Marinho Júnior, Erich Betting (marketing
-                esportivo).
-              </p>
-
-              <section class="col-grid">
-                <div class="card">
-                  <h4>Gráfico Simulado (Chart.js)</h4>
-                  <p>
-                    Receita, vendas de produtos oficiais, sócios, engajamento
-                    digital e impacto das campanhas.
-                  </p>
-                  <canvas
-                    id="chartRevenue"
-                    width="300"
-                    height="180"
-                    data-aos="fade-up"
-                  ></canvas>
-                </div>
-
-                <div class="card small">
-                  <h4>Linha do tempo</h4>
-                  <ul class="timeline">
-                    <li data-aos="fade-up" data-aos-delay="100">
-                      <strong>2019</strong> — Campanha X
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="200">
-                      <strong>2021</strong> — Rebranding do Vitória (Curvello)
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="300">
-                      <strong>2023</strong> — Campanha "Meu Sangue é
-                      Rubro-Negro"
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="400">
-                      <strong>2024</strong> — Ação digital integrada
-                    </li>
-                  </ul>
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="resumo" class="panel panel-alt">
-        <div class="">
-          <div class="col col-text">
-            <h2 class="title bg-resumo">Resumo e próximos passos</h2>
-
-            <div class="container content-wrap">
-              <div class="article-text" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  Recapitulamos: a paixão da torcida é o fio condutor que
-                  conecta jornalismo, conteúdo de influenciadores e estratégias
-                  de marketing. O desafio para clubes e profissionais é
-                  transformar essa paixão em experiências autênticas e em
-                  resultados mensuráveis.
-                </p>
-                <p>
-                  Próximos passos sugeridos: aprofundar entrevistas, coletar
-                  dados financeiros para análise de impacto, criar uma galeria
-                  interativa com conteúdo enviado por torcedores e lançar uma
-                  série de microvídeos com entrevistas curtas para redes
-                  sociais.
-                </p>
-              </div>
-
-              <div class="cta-row" data-aos="fade-up" data-aos-delay="200">
-                <a class="btn" href="#hero">Voltar ao topo</a>
-                <a class="btn ghost" href="#contact"
-                  >Solicitar material / contato</a
-                >
-              </div>
-
-              <aside class="col col-aside">
-                <div class="card">
-                  <h4>Fontes e contatos sugeridos</h4>
-                  <ul>
-                    <li>Ulisses Gama — Assessoria de Imprensa (Bahia)</li>
-                    <li>Bruno Carvalho — Marketing (Vitória)</li>
-                    <li>Pilar Andrade — ex-social media (Vitória)</li>
-                    <li>Marinho Júnior — Setorista (Bahia)</li>
-                    <li>Matheus Barbaço — Portal EuSouMaisBahia</li>
-                  </ul>
-                  <p class="muted">
-                    Veja a pauta completa para referências de recursos
-                    multimídia.
-                  </p>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" data-aos="fade-up">
-      <div class="container">
-        <img src="assets/images/unijorge.avif" alt="Logo unijorge" />
-        <p>
-          Esta reportagem faz parte do Trabalho de Conclusão do Curso Jornalismo
-          do Centro Universitário Jorge Amado (UNIJORGE)
-        </p>
-        <p>
-          <b>Reportagem:</b>Douglas Reis, Ricardo Magalhães e Paloma Matos.
-          Pauta e arquivo de texto fornecidos para desenvolvimento do site.
-        </p>
-        <p>
-          <b>Desenvolvedor do site:</b>
-          <a
-            href="https://www.linkedin.com/in/leandro-campos-750388214/"
-            target="_blank"
-            rel="noopener"
-            >Leandro Campos</a
-          >
-        </p>
       </div>
-    </footer>
+    </section>
+
+    <section id="resumo" class="panel panel-alt">
+      <div class="">
+        <div class="col col-text">
+          <h2 class="title bg-resumo">Resumo e próximos passos</h2>
+
+          <div class="container content-wrap">
+            <div class="article-text" data-aos="fade-up" data-aos-delay="100">
+              <p>
+                Recapitulamos: a paixão da torcida é o fio condutor que
+                conecta jornalismo, conteúdo de influenciadores e estratégias
+                de marketing. O desafio para clubes e profissionais é
+                transformar essa paixão em experiências autênticas e em
+                resultados mensuráveis.
+              </p>
+              <p>
+                Próximos passos sugeridos: aprofundar entrevistas, coletar
+                dados financeiros para análise de impacto, criar uma galeria
+                interativa com conteúdo enviado por torcedores e lançar uma
+                série de microvídeos com entrevistas curtas para redes
+                sociais.
+              </p>
+            </div>
+
+            <div class="cta-row" data-aos="fade-up" data-aos-delay="200">
+              <a class="btn" href="#hero">Voltar ao topo</a>
+              <a class="btn ghost" href="#contact">Solicitar material / contato</a>
+            </div>
+
+            <aside class="col col-aside">
+              <div class="card">
+                <h4>Fontes e contatos sugeridos</h4>
+                <ul>
+                  <li>Ulisses Gama — Assessoria de Imprensa (Bahia)</li>
+                  <li>Bruno Carvalho — Marketing (Vitória)</li>
+                  <li>Pilar Andrade — ex-social media (Vitória)</li>
+                  <li>Marinho Júnior — Setorista (Bahia)</li>
+                  <li>Matheus Barbaço — Portal EuSouMaisBahia</li>
+                </ul>
+                <p class="muted">
+                  Veja a pauta completa para referências de recursos
+                  multimídia.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="container">
+      <img src="assets/images/unijorge.avif" alt="Logo unijorge" />
+      <p>
+        Esta reportagem faz parte do Trabalho de Conclusão do Curso Jornalismo
+        do Centro Universitário Jorge Amado (UNIJORGE)
+      </p>
+      <p>
+        <b>Reportagem:</b>Douglas Reis, Ricardo Magalhães e Paloma Matos.
+        Pauta e arquivo de texto fornecidos para desenvolvimento do site.
+      </p>
+      <p>
+        <b>Desenvolvedor do site:</b>
+        <a href="https://www.linkedin.com/in/leandro-campos-750388214/" target="_blank" rel="noopener">Leandro
+          Campos</a>
+      </p>
+    </div>
+  </footer>
 
 
-  </body>
+</body>
+
 </html>
