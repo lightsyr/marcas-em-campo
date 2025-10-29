@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,16 +7,99 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <script src="https://unpkg.com/@panzoom/panzoom@4.6.0/dist/panzoom.min.js"></script>
     <title>Marcas Em Campo</title>
   </head>
   <body>
-    <main class="text-justify">
-      <section
-        class="relative h-screen bg-cover bg-center bg-fixed"
-        style="background-image: url('assets/images/arena-fonte.jpg')"
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-20">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img
+            src="https://placehold.co/128x64?text=logo"
+            class="h-8"
+            alt="Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Abrir menu principal</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-white bg-green-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                aria-current="page"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#bloco1"
+                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Bloco 1</a
+              >
+            </li>
+            <li>
+              <a
+                href="#bloco2"
+                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Bloco 2
+              </a>
+            </li>
+            <li>
+              <a
+                href="#bloco3"
+                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Bloco 3</a
+              >
+            </li>
+            <li>
+              <a
+                href="#bloco4"
+                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Bloco 4</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="text-justify">
+      <section class="relative h-screen">
+        <video class="absolute w-screen h-screen object-cover" autoplay>
+          <source src="assets/videos/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
         <div
           class="absolute top-0 right-0 w-full h-full bg-[rgba(0,0,0,0.6)]"
         ></div>
@@ -62,6 +145,7 @@
         </div>
       </section>
       <section
+        id="bloco1"
         class="py-20 px-6 transition-all duration-1000 opacity-100 translate-y-0 bg-background text-foreground"
       >
         <div class="mx-auto max-w-4xl" data-aos="fade-up">
@@ -73,18 +157,19 @@
               É domingo em Salvador. O sol nasceu e as ruas já ganham cor, de
               azul, vermelho e branco, de vermelho e preto.
             </p>
+
             <p>
-              Em Canabrava, um torcedor do Vitória acorda antes mesmo do
+              Em Canabrava, um torcedor do Vitória acordou antes mesmo do
               despertador. Abre o armário e escolhe a camisa com cuidado, a
               mesma de tantas histórias, de vitórias e tropeços. Pega a
               bandeira, confere se o celular está carregado e segue rumo ao
-              estacionamento do Barradão. Hoje é dia de jogo!
+              estacionamento do Barradão. <strong>Hoje é dia de jogo!</strong>
             </p>
             <p>
               Do outro lado da cidade, em Brotas, uma torcedora do Bahia se
               arruma com o mesmo ritual. Combina o look com a namorada, ajusta o
-              lenço azul no cabelo e grava o primeiro story do dia: "Hoje tem
-              Esquadrão na Fonte!"
+              lenço azul no cabelo e grava o primeiro story do dia:
+              <strong>"Hoje tem Esquadrão na Fonte!"</strong>
             </p>
             <p>
               Cada um com sua cor, sua história, sua fé no resultado. Eles não
@@ -100,9 +185,7 @@
       <div class="relative h-screen w-full overflow-hidden">
         <div
           class="absolute inset-0 bg-cover bg-center"
-          style="
-            background-image: url('https://cdn.ibahia.com/img/inline/320000/Zagueiro-do-Vitoria-aparece-no-meio-da-torcida-e-s0032982500202410271306.webp?xid=1725903');
-          "
+          style="background-image: url('assets/images/IMG_4673.JPG')"
         ></div>
         <div
           class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8"
@@ -125,7 +208,7 @@
               onde o torcedor fala, cria, comenta e influencia.
             </p>
             <p>
-              Onde o grito que antes parava no alambrado atravessa timelines e
+              Onde o grito que antes parava no alambrado atravessou timelines e
               transmissões. E onde Bahia e Vitória, dois gigantes de histórias e
               paixões opostas, aprendem a dialogar com uma torcida que já não só
               assiste, mas participa, questiona, cria e move o jogo fora das
@@ -138,6 +221,75 @@
               paixão das torcidas se transforma em estratégia, conteúdo e
               conexão digital.
             </p>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-lg shadow-2xl"
+            data-aos="flip-left"
+          >
+            <div
+              class="flex flex-col bg-black text-white items-center py-4"
+              data-aos="flip-left"
+            >
+              <video class="aspect-video" controls>
+                <source
+                  src="assets/videos/impacto da fase do clube nos views - a desgraça vende.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">
+                Marinho Júnior
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6 text-lg leading-relaxed">
+            <p>
+              Nesse novo cenário, surgem figuras que reconfiguram completamente
+              a maneira como se fala de futebol: os criadores de conteúdo. São
+              torcedores que cruzaram a linha invisível das arquibancadas para
+              se tornarem comunicadores; e comunicadores que, de forma orgânica,
+              assumem o papel de mediadores entre o clube e a torcida. Eles
+              ocupam um espaço híbrido — independente, mas profundamente
+              emocional — dentro de um ecossistema digital que cresce no mesmo
+              ritmo da paixão e da identidade que o futebol desperta.
+            </p>
+
+            <p>
+              Entre o grito e o tweet, entre o vídeo de análise e o desabafo
+              pós-jogo, nasce uma nova camada de narrativa. Mas o que significa,
+              afinal, ocupar esse espaço de fala independente em meio à
+              engrenagem profissional da comunicação esportiva?
+            </p>
+
+            <p>
+              Quem responde é Marinho Júnior, criador de conteúdo do Bahia, que
+              reflete sobre o papel das mídias alternativas e sobre como elas
+              dialogam — ou tensionam — a relação com a comunicação oficial do
+              clube.
+            </p>
+
+            <div
+              class="overflow-hidden rounded-lg shadow-2xl"
+              data-aos="flip-left"
+            >
+              <div
+                class="flex flex-col bg-black text-white items-center py-4"
+                data-aos="flip-left"
+              >
+                <video class="aspect-video" controls>
+                  <source
+                    src="assets/videos/impacto da fase do clube nos views - a desgraça vende.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="text-lg font-semibold text-foreground">
+                  Marinho Júnior
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -187,7 +339,7 @@
         </div>
       </section>
 
-      <section class="py-20 px-6 translate-y-0 bg-black text-white">
+      <section id="bloco2" class="py-20 px-6 translate-y-0 bg-black text-white">
         <div class="mx-auto max-w-4xl" data-aos="fade-up">
           <h2 class="mb-8 text-4xl font-bold md:text-5xl">
             O Ecossistema da Informação
@@ -207,6 +359,13 @@
               multifacetada e integrada, onde cada formato se retroalimenta do
               outro.
             </p>
+
+            <p>
+              Essa mudança não aconteceu do dia para a noite. Como explica o
+              jornalista e executivo Erich Beting, fundador do site Máquina do
+              Esporte, o mercado esportivo brasileiro vem passando por um
+              processo constante de amadurecimento:
+            </p>
           </div>
           <div
             class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0"
@@ -214,9 +373,9 @@
             <blockquote
               class="text-2xl font-light italic leading-relaxed md:text-3xl"
             >
-              "Há pelo menos duas décadas a gente mergulha nesse dia a dia de
+              “Há pelo menos duas décadas a gente mergulha nesse dia a dia de
               marca esportiva. O mercado hoje é muito melhor do que era há 5, 10
-              ou 20 anos."
+              ou 20 anos.”
             </blockquote>
             <div class="mt-6">
               <p class="font-semibold">Erich Beting</p>
@@ -229,6 +388,15 @@
               profissionais de comunicação vêm se adaptando para transformar a
               paixão em estratégia, e o torcedor em protagonista de uma nova
               economia do esporte.
+            </p>
+
+            <p>
+              Uma entrevista na TV pode se transformar em um corte no Instagram;
+              um comentário no rádio vira pauta em um canal de influenciador; e
+              uma notícia publicada em um portal logo ganha nova vida em um
+              podcast de torcida. Mais do que competir por espaço, essas mídias
+              hoje se complementam, cada uma com sua própria força, linguagem e
+              alcance.
             </p>
           </div>
           <div class="overflow-hidden rounded-lg shadow-2xl">
@@ -246,11 +414,7 @@
               <p class="text-lg font-semibold text-foreground">Erich Beting</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="py-20 px-6 bg-white text-black">
-        <div class="mx-auto max-w-4xl" data-aos="fade-up">
           <div class="space-y-6 text-lg leading-relaxed">
             <p>
               Entre os profissionais que vivenciaram essa transição de dentro,
@@ -260,12 +424,14 @@
               rubro-negra tanto da imprensa tradicional quanto dos criadores de
               conteúdo digital.
             </p>
+
             <p>
               Hoje, o torcedor não quer apenas assistir ao jogo: ele quer
               participar dele. Quer sentir o clima do vestiário, acompanhar os
               treinos, ouvir o jogador fora de campo e viver o clube em tempo
               real.
             </p>
+
             <p>
               Foi com essa visão que o Vitória iniciou uma das transformações
               mais marcantes de sua história recente. Sob a liderança de Rafael
@@ -273,10 +439,38 @@
               posicionamento de marca, uma identidade visual renovada e uma
               comunicação mais humana, leve e próxima do torcedor.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="relative h-screen w-full overflow-hidden">
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('assets/images/tv-print.png')"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8"
+        >
+          <p class="mx-auto max-w-4xl text-sm text-white/90 md:text-base">
+            TV Vitória no youtube
+          </p>
+        </div>
+      </div>
+
+      <section class="py-20 px-6 bg-white text-black">
+        <div class="mx-auto max-w-4xl" data-aos="fade-up">
+          <div class="space-y-6 text-lg leading-relaxed">
             <p>
               Entre as principais ações, o fortalecimento da TV Vitória, canal
               oficial do clube, teve papel decisivo na revitalização da imagem
               institucional e no aumento do engajamento digital.
+            </p>
+            <p>
+              Essa nova filosofia de comunicação transformou a forma como o
+              clube se apresentava. A TV Vitória passou a produzir conteúdos
+              inéditos: treinos, viagens, pré-jogos, entrevistas exclusivas e
+              transmissões das categorias de base, tudo com a linguagem e
+              identidade rubro-negra, aproximando o torcedor da rotina do clube.
             </p>
 
             <div
@@ -290,7 +484,7 @@
                 sentir parte do Vitória — mostrar que ele não é apenas um
                 espectador, mas um pedaço vivo dessa história. E foi
                 gratificante ver na prática o impacto disso: a experiência de
-                conectar o torcedor aos jogadores, ao campo, aos bastidores"
+                conectar o torcedor aos jogadores, ao campo, aos bastidores”
               </blockquote>
               <div class="mt-6">
                 <p class="font-semibold">Rafael Curvello</p>
@@ -360,38 +554,39 @@
             </div>
 
             <p>
-              Apesar desse avanço, o caminho da profissionalização da
-              comunicação esportiva ainda enfrenta desafios. Como destaca Erich
-              Beting, muitos clubes brasileiros ainda não se enxergam
-              completamente como grandes marcas:
+              Apesar dos avanços, o caminho da profissionalização na comunicação
+              esportiva brasileira ainda é tortuoso. Muitos clubes, mesmo
+              mergulhados em estruturas cada vez mais complexas, ainda hesitam
+              em se reconhecer como marcas de grande porte, com
+              responsabilidades que ultrapassam o gramado. A visão empresarial
+              do futebol vem crescendo, mas ainda tropeça em velhos hábitos —
+              aqueles impulsos passionais que fazem dirigentes e administradores
+              agirem mais como torcedores exaltados do que como gestores de
+              imagem.
             </p>
 
-            <div
-              class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0"
-            >
-              <blockquote
-                class="text-2xl font-light italic leading-relaxed md:text-3xl"
-              >
-                “O conceito de pensar o clube como empresa vem crescendo, mas
-                ainda não está consolidado. Alguns já entenderam isso e
-                trabalham de forma mais corporativa, mas outros ainda agem como
-                torcedores de arquibancada. Você não vê um Manchester United ou
-                um Barcelona tripudiando do rival nas redes. Eles defendem seu
-                torcedor, mas dentro de um limite profissional. No Brasil, ainda
-                estamos aprendendo esse equilíbrio.”
-              </blockquote>
-              <div class="mt-6">
-                <p class="font-semibold">Erich Beting</p>
-                <p class="text-sm">TV Vitória</p>
-              </div>
-            </div>
+            <p>
+              <strong>Erich Beting</strong>, especialista no tema, observa que
+              alguns clubes já compreenderam a importância de uma postura
+              corporativa e constroem sua comunicação com estratégia e
+              propósito, enquanto outros ainda se perdem em provocações rasas e
+              reações emocionais. Lá fora, exemplos como Manchester United e
+              Barcelona tratam o rival com a distância profissional de quem
+              entende que defender seu torcedor não exige tripudiar do outro. No
+              Brasil, essa maturidade ainda é um aprendizado em andamento, uma
+              lição que se desenrola a cada tweet impulsivo e a cada campanha
+              que ultrapassa o limite do bom senso.
+            </p>
 
             <p>
-              A fala de Beting reforça que, embora a digitalização tenha
-              aproximado os clubes dos torcedores, ela também exige novas
-              responsabilidades. A linha entre o entretenimento e a gestão de
-              marca tornou-se mais tênue, e dominar essa fronteira é o grande
-              desafio dos próximos anos.
+              A fala de Beting revela um ponto essencial: a digitalização
+              aproximou clubes e torcedores como nunca antes, mas essa
+              proximidade também cobra responsabilidade. A fronteira entre o
+              entretenimento e a gestão de marca tornou-se cada vez mais fina, e
+              navegar por ela exige sensibilidade, método e, acima de tudo,
+              consciência de que o futebol, hoje, é também narrativa, reputação
+              e valor simbólico. O desafio dos próximos anos será equilibrar
+              paixão e profissionalismo sem deixar que um destrua o outro.
             </p>
           </div>
         </div>
@@ -413,7 +608,7 @@
         </div>
       </div>
 
-      <section class="py-20 px-6 bg-black text-white">
+      <section id="bloco3" class="py-20 px-6 bg-black text-white">
         <div class="mx-auto max-w-4xl" data-aos="fade-up">
           <div class="space-y-6 text-lg leading-relaxed">
             <p>
@@ -431,7 +626,10 @@
               <strong>Édson Marinho</strong>, radialista da
               <strong>Rádio Metrópole</strong>. Com décadas de cobertura
               esportiva na Bahia, ele acredita que o rádio não apenas
-              sobreviveu, mas se reinventou.
+              sobreviveu, mas se reinventou. Marinho defende que, ao contrário
+              do que se previu com a chegada da TV, o rádio nunca morrerá e que
+              todos os meios — rádio, podcast, internet, redes sociais, jornal e
+              televisão — podem coexistir, pois há espaço para todos.
 
               <img
                 class="float-right m-4"
@@ -440,13 +638,6 @@
                 data-aos="fade-left"
               />
 
-              Marinho defende que, ao contrário do que se previu com a chegada
-              da TV, o rádio nunca morrerá e que todos os meios — rádio,
-              podcast, internet, redes sociais, jornal e televisão — podem
-              coexistir, pois há espaço para todos.
-            </p>
-
-            <p>
               Enquanto as redes sociais fragmentaram a atenção, o rádio
               preservou um vínculo emocional raro com o torcedor, seja no
               trajeto até o estádio ou na própria arquibancada.
@@ -454,11 +645,15 @@
 
             <p>
               No entanto, a integração dessa nova realidade não é simples.
-              <strong>Marinho Júnior</strong>, filho de Édson e criador do
-              <strong>Canal do Puco</strong>, representa a nova geração que
-              transformou a comunicação esportiva em um diálogo direto, com
-              linguagem popular e ritmo de rede social. Ele reconhece que essa
-              transição enfrenta resistência.
+              Marinho Júnior, filho de Édson e criador do Canal do Puco,
+              representa a nova geração que transformou a comunicação esportiva
+              em um diálogo direto, com linguagem popular e ritmo de rede
+              social. Ele reconhece que essa transição enfrenta resistência.
+              Segundo Marinho Júnior, existe um certo preconceito da mídia
+              tradicional contra a mídia independente. Ele aponta que
+              profissionais formados, que batalharam por seu espaço, ainda têm
+              dificuldade em aceitar que qualquer pessoa possa criar um canal e
+              frequentar os mesmos espaços, como coletivas de imprensa.
 
               <img
                 class="float-left m-4"
@@ -466,12 +661,6 @@
                 alt=""
                 data-aos="fade-right"
               />
-
-              Segundo Marinho Júnior, existe um certo preconceito da mídia
-              tradicional contra a mídia independente. Ele aponta que
-              profissionais formados, que batalharam por seu espaço, ainda têm
-              dificuldade em aceitar que qualquer pessoa possa criar um canal e
-              frequentar os mesmos espaços, como coletivas de imprensa.
             </p>
 
             <p>
@@ -481,67 +670,41 @@
               dos canais oficiais, com narradores e comentaristas, o torcedor
               percebe a diferença do formato independente. Essa independência
               permite uma liberdade para criticar — algo que as TVs dos clubes,
-              por serem mais <em>"blindadas"</em>, não fariam, como apontar que
-              um jogador perdeu um gol claro ou que está em má fase.
+              por serem mais "blindadas", não fariam, como apontar que um
+              jogador perdeu um gol claro ou que está em má fase.
             </p>
 
             <p>
-              Ele reforça, porém, que independência não significa
+              Ele reforça, porém, que a independência não significa
               irresponsabilidade. Marinho Júnior lembra que a internet não é
-              <em>"terra de ninguém"</em> e que é preciso ter cuidado, pois
-              muitos respondem judicialmente pelo que publicam. Trata-se de
-              fazer um trabalho com liberdade, mas com consciência.
+              "terra de ninguém" e que é preciso ter cuidado, pois muitos
+              respondem judicialmente pelo que publicam. Trata-se de fazer um
+              trabalho com liberdade, mas com consciência.
             </p>
 
-            <p>
-              Trazendo o ponto de vista institucional,
-              <strong>Rafael Curvello</strong>, ex-gerente de marketing do
-              Vitória, enxerga nesse diálogo um potencial de fortalecimento
-              mútuo. Ele explica que a imprensa tradicional tem um papel
-              fundamental de registro e alcance, enquanto os canais
-              independentes falam direto com o torcedor. Para Curvello, o
-              segredo não está em escolher um ou outro, mas em entender como
-              essas forças podem trabalhar juntas.
-            </p>
+            <div class="rounded-lg shadow-2xl bg-black">
+              <div
+                class="flex flex-col text-white items-center py-4"
+                data-aos="flip-left"
+              >
+                <video class="aspect-video" controls>
+                  <source
+                    src="assets/videos/impacto da fase do clube nos views - a desgraça vende.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="text-lg font-semibold text-foreground">Marinho Jr</p>
+              </div>
+            </div>
 
-            <p>
-              O clube, portanto, precisou reconhecer os criadores de conteúdo
-              como parceiros na amplificação da marca, e não como rivais. Assim,
-              o clube se posiciona como mediador, conciliando a tradição do
-              rádio com a linguagem dos influenciadores.
-            </p>
+            <img
+              class="w-full"
+              src="https://placehold.co/640x480?text=timeline"
+              alt=""
+            />
 
-            <p>
-              Entre essas novas vozes está <strong>Anderson Mattos</strong>,
-              criador do <strong>Canal do Dinâmico</strong>, que cobre o
-              Vitória. Ele vê o papel das mídias alternativas como complementar.
-              Mattos avalia que seu trabalho ajuda o clube naturalmente, pois
-              alcança "bolhas" de audiência que os canais oficiais, como a
-              <strong>TV Vitória</strong>, por vezes não alcançam.
-            </p>
-
-            <p>
-              Anderson Mattos também enxerga na comunicação independente uma
-              forma de manter a paixão viva, especialmente nos momentos
-              difíceis. Ele destaca que o maior patrimônio de um time é o
-              torcedor e que os canais independentes não dependem 100% do
-              desempenho do time, pois se baseiam nessa paixão. Durante o
-              período mais delicado da história recente do Vitória, entre 2019 e
-              2021, com a queda para a Série C, Mattos manteve o elo com a
-              torcida, continuando a produzir conteúdo mesmo sem vitórias, o que
-              demonstrou a força dessa conexão.
-            </p>
-
-            <p>
-              O relato de Anderson resume o papel das mídias independentes: elas
-              não concorrem com a comunicação oficial, elas a complementam. Ao
-              atingir públicos diferentes, esses criadores expandem o alcance
-              das narrativas do clube, gerando engajamento genuíno. O torcedor
-              que acompanha o Canal do Dinâmico pode não assistir à TV Vitória,
-              mas é impactado positivamente pelo clube.
-            </p>
-
-            <div class="relative">
+            <!-- <div class="relative">
               <img
                 id="tv-vitoria"
                 class="w-full"
@@ -572,7 +735,63 @@
                   />
                 </svg>
               </div>
-            </div>
+            </div> -->
+
+            <p>
+              Trazendo o ponto de vista institucional, Rafael Curvello,
+              ex-gerente de marketing do Vitória, enxerga nesse diálogo um
+              potencial de fortalecimento mútuo. Ele explica que a imprensa
+              tradicional tem um papel fundamental de registro e alcance,
+              enquanto os canais independentes falam direto com o torcedor. Para
+              Curvello, o segredo não está em escolher um ou outro, mas em
+              entender como essas forças podem trabalhar juntas.
+            </p>
+
+            <p>
+              O clube, portanto, precisou reconhecer os criadores de conteúdo
+              como parceiros na amplificação da marca, e não como rivais. Assim,
+              o clube se posiciona como mediador, conciliando a tradição do
+              rádio com a linguagem dos influenciadores.
+            </p>
+
+            <!-- video -->
+
+            <p>
+              Entre essas novas vozes está Anderson Mattos, criador do Canal do
+              Dinâmico, que cobre o Vitória. Ele vê o papel das mídias
+              alternativas como complementar. Mattos avalia que seu trabalho
+              ajuda o clube naturalmente, pois alcança "bolhas" de audiência que
+              os canais oficiais, como a TV Vitória, por vezes não alcançam.
+            </p>
+
+            <p>
+              Anderson Mattos também enxerga na comunicação independente uma
+              forma de manter a paixão viva, especialmente nos momentos
+              difíceis. Ele destaca que o maior patrimônio de um time é o
+              torcedor e que os canais independentes não dependem 100% do
+              desempenho do time, pois se baseiam nessa paixão. Durante o
+              período mais delicado da história recente do Vitória, entre 2019 e
+              2021, com a queda para a Série C, Mattos manteve o elo com a
+              torcida, continuando a produzir conteúdo mesmo sem vitórias, o que
+              demonstrou a força dessa conexão.
+            </p>
+
+            <p>
+              O relato de Anderson resume o papel das mídias independentes: elas
+              não concorrem com a comunicação oficial, elas a complementam. Ao
+              atingir públicos diferentes, esses criadores expandem o alcance
+              das narrativas do clube, gerando engajamento genuíno. O torcedor
+              que acompanha o Canal do Dinâmico pode não assistir à TV Vitória,
+              mas é impactado positivamente pelo clube.
+            </p>
+
+            <img
+              class="w-full"
+              src="https://placehold.co/640x480?text=comparativo"
+              alt=""
+            />
+
+            <audio class="w-full" src="" controls></audio>
 
             <p>
               Essa sobreposição de vozes cria uma comunicação em rede. Enquanto
@@ -696,27 +915,27 @@
         </div>
       </div>
 
-      <section class="py-20 px-6 bg-black text-white">
+      <section id="bloco4" class="py-20 px-6 bg-black text-white">
         <div class="mx-auto max-w-4xl">
-          <div
-            class="space-y-6 text-lg leading-relaxed"
-            data-aos="fade-up"
-          >
+          <div class="space-y-6 text-lg leading-relaxed" data-aos="fade-up">
             <p>
               Antes de mergulhar nos números e estratégias, é importante
-              entender o contexto dessa transformação.
+              compreender o contexto dessa transformação.
             </p>
 
             <p>
               O marketing esportivo deixou de ser apenas uma vitrine de
-              comunicação e passou a ter papel central na geração de receitas,
-              no fortalecimento da marca e na construção de comunidades de
-              torcedores.
+              comunicação e passou a ocupar um papel central na geração de
+              receitas, no fortalecimento da marca e na construção de
+              comunidades de torcedores.
             </p>
             <p>
-              Como explica o jornalista e especialista em marketing esportivo
-              <strong>Erich Beting</strong>, essa mudança é fruto de uma nova
-              mentalidade dentro dos clubes:
+              Segundo o jornalista e especialista em marketing esportivo
+              <strong>Erich Beting</strong> , essa mudança reflete uma nova
+              mentalidade dentro dos clubes — uma percepção mais estratégica
+              sobre o valor do engajamento e da narrativa. Ele observa também a
+              singularidade do mercado brasileiro nas redes sociais,
+              especialmente quando comparado ao cenário europeu:
             </p>
 
             <div
@@ -730,25 +949,8 @@
                 como consumidor. A internet teve um papel essencial nisso,
                 porque os clubes começaram a entender que podem ser a mídia —
                 controlar sua narrativa e se comunicar diretamente com o fã.”
-              </blockquote>
-              <div class="mt-6">
-                <p class="font-semibold">Erich Beting</p>
-                <p class="text-sm">Fundador do site Máquina do Esporte</p>
-              </div>
-            </div>
-
-            <p>
-              Beting complementa sua análise observando a singularidade do
-              mercado brasileiro de redes sociais, especialmente em comparação
-              com a Europa:
-            </p>
-
-            <div
-              class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0"
-            >
-              <blockquote
-                class="text-2xl font-light italic leading-relaxed md:text-3xl"
-              >
+                <br />
+                <br />
                 “O Brasil não está atrás. Talvez aqui vire meio que a vanguarda
                 desse relacionamento... naturalmente a gente usa muito a rede
                 social.”
@@ -759,38 +961,176 @@
               </div>
             </div>
 
+            <audio class="w-full" src="" controls></audio>
+
             <p>
-              O que ele quer dizer é que, embora os clubes europeus tenham
-              processos mais controlados e padronizados, o
-              <strong>Brasil desenvolveu uma efervescência própria</strong> no
-              uso das redes sociais. Aqui, a comunicação é mais imediata,
-              criativa e engajadora — e esse comportamento já começa a chamar
-              atenção internacional. Grandes ligas e clubes europeus, como
-              Chelsea e La Liga, já adaptam suas estratégias para se conectar
-              com o público brasileiro, percebendo seu poder de engajamento.
+              O que Beting quer dizer é que, embora os clubes europeus operem
+              sob processos mais controlados e padronizados, o Brasil
+              desenvolveu uma efervescência singular no uso das redes sociais.
+              Aqui, a comunicação pulsa de forma imediata, criativa e
+              profundamente engajadora — um reflexo direto da maneira como o
+              brasileiro vive o futebol. Essa espontaneidade, que mistura emoção
+              e estratégia, já começa a chamar atenção fora do país. Grandes
+              ligas e clubes europeus, como Chelsea e La Liga, têm adaptado suas
+              estratégias para dialogar com o público brasileiro, reconhecendo
+              nele um dos maiores potenciais de engajamento digital do mundo.
             </p>
 
             <p>
-              Na prática, isso significa que Bahia e Vitória podem aprender com
-              modelos internacionais, mas também têm liberdade para inovar:
-              campanhas, memes, influenciadores e conteúdo exclusivo podem gerar
-              resultados de engajamento maiores e mais diretos do que em
-              mercados mais controlados. O Brasil, portanto, atua como um
-              <strong>laboratório vivo de marketing esportivo digital</strong>,
-              com oportunidades únicas para transformar paixão em receita.
+              Na prática, isso significa que Bahia e Vitória podem, sim,
+              aprender com os modelos internacionais, mas também têm espaço para
+              ousar. Campanhas irreverentes, memes, influenciadores e conteúdos
+              exclusivos tornaram-se ferramentas poderosas — capazes de gerar
+              resultados de engajamento mais diretos e orgânicos do que em
+              mercados excessivamente controlados. O Brasil, nesse sentido,
+              funciona como um laboratório vivo de marketing esportivo digital,
+              onde a criatividade é o principal ativo e a paixão é o combustível
+              que move tudo.
             </p>
 
             <p>
-              Os números mostram o reflexo dessa virada. Nos últimos anos, Bahia
-              e Vitória ampliaram suas receitas com marketing, parcerias
-              comerciais e plataformas digitais, fortalecendo suas marcas e
-              consolidando o torcedor no centro das decisões.
+              Os números confirmam essa virada. Nos últimos anos, Bahia e
+              Vitória ampliaram suas receitas por meio de ações de marketing,
+              parcerias comerciais e estratégias digitais que fortaleceram suas
+              marcas e consolidaram o torcedor no centro das decisões. Mais do
+              que simplesmente divulgar, o desafio agora é gerar valor —
+              transformar cada ação de comunicação em um gesto de aproximação,
+              pertencimento e fidelização.
             </p>
 
+            <img
+              class="w-full"
+              src="https://placehold.co/640x480?text=carrosel"
+              alt=""
+            />
+            <img
+              class="w-full"
+              src="https://placehold.co/640x480?text=Gráfico comparativo"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 px-6 bg-black text-white">
+        <div class="mx-auto max-w-4xl">
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Anderson Mattos</h3>
             <p>
-              Mais do que divulgar, o desafio passou a ser
-              <strong>gerar valor</strong> — e fazer com que cada ação de
-              comunicação seja também um movimento de aproximação e fidelização.
+              Fundador e Repórter do Canal do Dinâmico, canal independente que
+              cobre o Vitória EC — um dos principais canais do Vitória com 130
+              mil inscritos no Youtube.
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Yuri Figueiredo</h3>
+            <p>
+              Criador do canal ECVídeos, que tem mais de 40 mil inscritos no
+              YouTube e no Instagram mais de 50 mil. Ele é um dos principais
+              influenciadores do Vitória, fazendo vlogs de jogos e conteúdos
+              voltados à torcida e expondo sua opinião.
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Edson Marinho</h3>
+            <p>
+              Radialista da Metrópoles. “Começou sua carreira na Rádio Carioca
+              de Feira de Santana, onde iniciou como cobrador e logo migrou para
+              a área técnica e de operação de áudio. Passou por emissoras como
+              Rádio Subaé, Rádio Sociedade da Bahia, TV Subaé, Rádio 104,
+              Itapuã, Cultura, Cristal e Transamérica, consolidando seu caminho
+              no rádio esportivo. Há 18 anos está na Rádio Metrópole, no Jumbo
+              da Família Kertz, onde participou de quatro Copas do Mundo (África
+              do Sul, Brasil, Rússia e Catar), seis finais de Champions League e
+              diversas coberturas internacionais, incluindo Eliminatórias e Copa
+              América. Hoje, segue à frente da equipe Campeões da Bola, com a
+              Rádio Metrópole FM 101.3, levando informação e paixão pelo esporte
+              para o público.”
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Erich Beting</h3>
+            <p>
+              Jornalista brasileiro especializado em negócios do esporte, além
+              de atuar como professor, palestrante e consultor de marketing
+              esportivo. Formado em Jornalismo pela PUC/SP, iniciou sua carreira
+              em veículos como a Folha de S.Paulo e o grupo Lance!, onde foi
+              editor do site pioneiro Esporte Bizz. Em abril de 2005, idealizou
+              e fundou a Máquina do Esporte, o principal veículo do país focado
+              em negócios esportivos, que inclui um portal e uma revista. Beting
+              também atuou como comentarista no BandSports e no SporTV, cobrindo
+              eventos como a Copa do Mundo de 2006. Em 2015, venceu o Prêmio
+              Comunique-se na categoria de Melhor Jornalista de Marketing &
+              Publicidade. Atualmente, além da Máquina do Esporte, colabora com
+              a ESPN Brasil.
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Lenin Franco</h3>
+            <p>
+              Publicitário e executivo de marketing esportivo, com ampla
+              experiência na gestão de marcas e clubes de futebol. Iniciou sua
+              carreira na Federação Bahiana de Futebol e, em 2013, ingressou no
+              Esporte Clube Bahia, onde liderou a reestruturação comercial e de
+              marketing por oito anos, reposicionando a marca e fortalecendo sua
+              imagem nacionalmente. Após o Bahia, assumiu o desafio de comandar
+              o marketing do Botafogo, contribuindo para o projeto de
+              recuperação e posterior venda do clube. Em seguida, integrou a
+              equipe do Cruzeiro, já sob a gestão de Ronaldo Fenômeno,
+              participando da reestruturação administrativa e do título da Série
+              B. Posteriormente, foi diretor de marketing e comercial da Seleção
+              Brasileira na CBF, comandando projetos de grande visibilidade e
+              consolidando sua atuação no futebol nacional. Atualmente, é sócio
+              da agência 94 Market Football, em São Paulo, especializada em
+              marketing esportivo e gestão de imagem de atletas e clubes. Sócio
+              da @94marketingfootbal. Colunista da @maquinaesporte Colunista da
+              @voz.futura. Ex diretor do Bahia, Botafogo, Cruzeiro e CBF.
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Lucas Pena</h3>
+            <p>
+              Jornalista formado pela Unifacs, com experiência em comunicação e
+              marketing esportivo. Iniciou sua carreira na agência Taurus,
+              trabalhando com gestão de imagem e assessoria de imprensa, e
+              descobriu seu interesse pelo futebol. Desde 2022, atua no
+              Jacuipense, onde nos últimos dois anos assumiu a gerência de
+              comunicação, liderando estratégias de mídia e gestão de
+              comunicação do clube. Também participou de projetos em parceria
+              com o Itabuna e nas categorias de base do Vitória.
+            </p>
+          </div>
+          <div class="space-y-6 text-lg leading-relaxed mb-10" data-aos="fade-up">
+            <h3 class="mb-8 text-3xl font-bold md:text-4xl">Rafael Curvello</h3>
+            <p>
+              Rafael Curvello é formado em Ilustração pela Unifax, em Salvador,
+              e possui mestrado em Gestão Esportiva, realizado em Seattle, nos
+              Estados Unidos. Durante sua estadia nos EUA, trabalhou com o time
+              de futebol da universidade e em uma empresa de treinamento de
+              atletas, lidando tanto com amadores quanto com atletas que
+              buscavam bolsas universitárias.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 px-6 bg-white text-black">
+        <div class="mx-auto max-w-4xl">
+          <div class="space-y-6 text-lg leading-relaxed" data-aos="fade-up">
+            <p>
+              No Brasil, iniciou sua experiência prática no esporte com um
+              estágio de seis meses na área de marketing do Vitória, onde
+              conheceu a dinâmica do clube e o funcionamento das decisões
+              internas. Com a pandemia, trabalhou brevemente em uma empresa de
+              logística, mas manteve o foco no esporte. No final de 2020, entrou
+              como voluntário no Vitória, atuando em marketing e coordenação
+              junto à direção, até ser efetivado como gerente de marketing,
+              cargo que ocupou até o final da Série B. Posteriormente, mudou-se
+              para São Paulo para atuar na EstrelaBet, na área de patrocínios,
+              onde aprofundou seus conhecimentos no setor de iGaming e cassinos.
+              Atualmente, é gerente de contas na Evolution, empresa que fornece
+              jogos ao vivo e virtuais de cassino para casas de apostas, atuando
+              na interface de vendas entre Brasil e mercados internacionais.
             </p>
           </div>
         </div>
