@@ -95,7 +95,7 @@
 
     <main class="text-justify">
       <section class="relative h-screen">
-        <video class="absolute w-screen h-screen object-cover" autoplay>
+        <video class="absolute w-screen h-screen object-cover" autoplay loop>
           <source src="assets/videos/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -1169,12 +1169,6 @@
 
     <script>
       AOS.init();
-
-      const element = Panzoom(document.getElementById("tv-vitoria"), {
-        bounds: true,
-      });
-
-      element.zoom(2);
     </script>
   </body>
 </html>
