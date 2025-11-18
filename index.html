@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <script src="https://unpkg.com/@panzoom/panzoom@4.6.0/dist/panzoom.min.js"></script>
+  <title>Marcas Em Campo</title>
+
+  <style>
+    section[id] {
+      scroll-margin-top: 70px;
+    }
+
+    .timeline-container {
+      &::-webkit-scrollbar {
+        width: 8px;
+        /* Set a thin width */
+        height: 8px;
+        /* For horizontal scrollbars */
+      }
+
+      /* Style the scrollbar track (the background) */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* Light gray background */
+        border-radius: 10px;
+        /* Rounded corners for the track */
+      }
+
+      /* Style the scrollbar thumb (the draggable part) */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        /* Darker gray thumb */
+        border-radius: 10px;
+        /* Rounded corners for the thumb */
+      }
+
+      /* Style the scrollbar thumb on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        /* Even darker gray on hover */
+      }
+
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
+    }
+
+    /* Pequenos ajustes extras para a timeline horizontal */
+    .timeline-track {
+      height: 4px;
+      background: var(--color-green-600);
+      border-radius: 9999px;
+
+
+    }
+
+    /* marcador redondo */
+    .timeline-node {
+      width: 48px;
+      height: 48px;
+      border-radius: 9999px;
+      transform: translateY(-50%);
+    }
+
+    /* força alinhamento central dos conteúdos */
+    .timeline-item {
+      min-width: 260px;
+      border-radius: 2rem;
+      background: var(--color-gray-600);
+      padding: 2rem;
+
+      &:hover {
+        background: var(--color-gray-700);
+        scale: 1.1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="border-gray-200 bg-black sticky top-0 z-20">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#">
+        <img class="w-40" src="assets/images/logo.png" alt="Logo Marcas em Campo" />
+      </a>
+      <button id="navbar-button" data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-400 hover:bg-gray-700 focus:ring-gray-600"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Abrir menu principal</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul
+          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:bg-black md:border-0 bg-gray-800 border-gray-700">
+          <li>
+            <a href="#"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Inicío</a>
+          </li>
+          <li>
+            <a href="#bloco1"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Introdução</a>
+          </li>
+          <li>
+            <a href="#bloco2"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">O
+              Ecossistema da Informação
+            </a>
+          </li>
+          <li>
+            <a href="#bloco3"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Jornalismo</a>
+          </li>
+          <li>
+            <a href="#bloco4"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Arquibancadas
+              Digitais
+            </a>
+          </li>
+          <li>
+            <a href="#bloco5"
+              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Marketing</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="text-justify">
+    <section class="relative h-screen">
+      <video class="absolute w-screen h-screen object-cover" autoplay loop muted>
+        <source src="assets/videos/hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="absolute top-0 right-0 w-full h-full bg-[rgba(0,0,0,0.6)]"></div>
+
+      <div class="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
+        <h1 class="mb-4 text-5xl font-bold md:text-7xl" data-aos="fade-up" data-aos-delay="0">
+          Marcas Em Campo
+        </h1>
+
+        <h2 class="text-xl font-light md:text-3xl" data-aos="fade-up" data-aos-delay="100">
+          Como a comunicação digital transformou a paixão pelo futebol na
+          Bahia
+        </h2>
+
+        <div class="absolute bottom-90 left-1/2 z-10 -translate-x-1/2 animate-bounce text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="h-8 w-8 animate-bounce">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section id="bloco1"
+      class="py-20 px-6 transition-all duration-1000 opacity-100 translate-y-0 bg-background text-foreground">
+      <div class="mx-auto max-w-4xl" data-aos="fade-up">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          Domingo de Futebol em Salvador
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            É domingo em Salvador. O sol nasceu e as ruas já ganham cor, de azul, vermelho e branco, de vermelho e
+            preto.
+          </p>
+          <p>
+            Em Canabrava, um torcedor do Vitória acordou antes mesmo do despertador. Abre o armário e escolhe a camisa
+            com cuidado, a mesma de tantas histórias, de vitórias e tropeços. Pega a bandeira, confere se o celular está
+            carregado e segue rumo ao estacionamento do Barradão. Hoje é dia de jogo!
+          </p>
+          <p>
+            Do outro lado da cidade, em Brotas, uma torcedora do Bahia se arruma com o mesmo ritual. Combina o look com
+            a namorada, ajusta o lenço azul no cabelo e grava o primeiro story do dia: “Hoje tem Esquadrão na Fonte!”
+          </p>
+          <p>
+            Cada um com sua cor, sua história, sua fé no resultado. Eles não se encontram nas arquibancadas, mas se
+            cruzam nas redes, nas transmissões ao vivo, nos comentários que viralizam. Ali, entre câmeras e celulares, o
+            futebol se reinventa e vira conteúdo, vira conversa, vira comunidade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('assets/images/6795a3ab5dcda_WhatsApp Image 2025-01-25 at 23.50.11.jpeg')"></div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p class="mx-auto max-w-4xl text-sm text-white md:text-base">
+          A paixão das arquibancadas agora se multiplica nas telas
+        </p>
+        <p class="bg-black mx-auto max-w-4xl text-sm text-white/60 md:text-base">Créditos da imagem: ge.globo.com</p>
+      </div>
+    </div>
+
+    <section class="py-20 px-6 bg-black text-white">
+      <div class="mx-auto max-w-4xl" data-aos="fade-up">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          A Nova Arquibancada Digital
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed mb-4">
+          <p>
+            O amor pelo clube agora também é um post, um vídeo, uma análise no podcast, um corte no Reels. Essa é a nova
+            arquibancada! Um espaço onde o torcedor fala, cria, comenta e influencia.
+          </p>
+          <p>
+            Onde o grito que antes parava no alambrado atravessou timelines e transmissões.
+            E onde Bahia e Vitória, dois gigantes de histórias e paixões opostas, aprendem a dialogar com uma torcida
+            que já não só assiste, mas participa, questiona, cria e move o jogo fora das quatro linhas.
+
+          </p>
+          <p>
+            É nesse cenário que nasce esta reportagem, uma produção Snowfall criada por três estudantes de jornalismo,
+            que percorrem os bastidores da comunicação esportiva na Bahia para entender como a paixão das torcidas se
+            transforma em estratégia, conteúdo e conexão digital.
+
+          </p>
+        </div>
+
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            Nesse novo cenário, surgem figuras que reconfiguram completamente a maneira como se fala de futebol: os
+            criadores de conteúdo. São torcedores que cruzaram a linha das arquibancadas para se tornarem comunicadores;
+            e comunicadores que assumem o papel de mediadores entre o clube e a torcida. Eles ocupam um espaço
+            independente, mas profundamente emocional, dentro de um ecossistema digital que cresce no mesmo ritmo da
+            paixão e da identidade que o futebol desperta.
+          </p>
+
+          <p>
+            Entre o grito e o tweet, entre o vídeo de análise e o desabafo pós-jogo, nasce uma nova camada de narrativa.
+            Mas o que significa, afinal, ocupar esse espaço de fala independente em meio à engrenagem profissional da
+            comunicação esportiva?
+
+          </p>
+
+          <p>
+            Quem responde é Marinho Júnior, criador de conteúdo do Bahia, que reflete sobre o papel das mídias
+            alternativas e sobre como elas dialogam, ou tensionam, a relação com a comunicação oficial do clube.
+          </p>
+
+          <div class="overflow-hidden rounded-lg shadow-2xl" data-aos="flip-left">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video class="aspect-video" controls>
+                <source src="assets/videos/Marinho Jr Diferenças e Vntgns Blindagem das TVs.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">
+                Marinho Júnior
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <img class="w-full" src="assets/images/divisor.gif" alt="divisor da pagina">
+
+    <section id="bloco2" class="py-20 px-6 translate-y-0 bg-white text-black">
+      <div class="mx-auto max-w-4xl" data-aos="fade-up">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          O Ecossistema da Informação
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            No futebol baiano, a forma como a informação circula já não cabe mais em um único formato. O que antes
+            chegava pelo rádio, pela TV ou pelos jornais impressos agora se espalha pelas redes sociais, pelos podcasts,
+            pelas transmissões ao vivo e até pelos grupos de WhatsApp.
+          </p>
+          <p>
+            O jornalismo esportivo tradicional e o conteúdo digital aprenderam a dividir, e muitas vezes a compartilhar,
+            o mesmo campo. O resultado dessa transformação é uma comunicação mais ágil, multifacetada e integrada, onde
+            cada formato se retroalimenta do outro.
+          </p>
+
+          <p>
+            Essa mudança não aconteceu do dia para a noite. Como explica o jornalista e executivo Erich Beting, fundador
+            do site Máquina do Esporte, o mercado esportivo brasileiro vem passando por um processo constante de
+            amadurecimento:
+          </p>
+        </div>
+        <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+          <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+            “Há pelo menos duas décadas a gente mergulha nesse dia a dia de marca esportiva. O mercado hoje é muito
+            melhor do que era há 5, 10 ou 20 anos.”
+          </blockquote>
+          <div class="mt-6">
+            <p class="font-semibold">Erich Beting</p>
+            <p class="text-sm">Fundador do site Máquina do Esporte</p>
+          </div>
+        </div>
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            A reflexão de Erich ajuda a entender como clubes, marcas e profissionais de comunicação vêm se adaptando
+            para transformar a paixão em estratégia, e o torcedor em protagonista de uma nova economia do esporte.
+          </p>
+
+          <p>
+            Uma entrevista na TV pode se transformar em um corte no Instagram; um comentário no rádio vira pauta em um
+            canal de influenciador; e uma notícia publicada em um portal logo ganha nova vida em um podcast de torcida.
+            Mais do que competir por espaço, essas mídias hoje se complementam, cada uma com sua própria força,
+            linguagem e alcance.
+          </p>
+
+          <div class="overflow-hidden rounded-lg shadow-2xl">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video class="aspect-video" controls>
+                <source src="assets/videos/Erich Importante Marketing e do torcedor protagoni.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">Erich Beting</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-lg leading-relaxed  my-6">
+          <p>
+            No estado da Bahia, esse processo ganha contornos muito particulares. O Bahia, ao longo da última década,
+            foi pioneiro ao entender a comunicação não como ferramenta de marketing, mas como expressão de propósito
+            institucional. Entre 2013 e 2021, sob a liderança de Lênin Franco, o departamento de marketing do clube se
+            transformou em um laboratório de inovação social e narrativa. Lenin, que vinha da mídia independente, trouxe
+            uma visão que aproximava o clube do seu povo, um movimento que ele mesmo descreve como uma reconstrução:
+
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “O Bahia não teve uma mudança de chave simples, de ‘vamos fazer diferente’. Foi uma construção. Desde
+              2013, nosso pensamento era reaproximar e empoderar o torcedor do próprio clube, porque o Bahia é um time
+              popular. E essa mentalidade foi crescendo até se transformar em campanhas com propósito social, como o
+              Novembro Negro.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Lenin Franco</p>
+              <p class="text-sm">Publicitário e executivo de marketing esportivo</p>
+            </div>
+          </div>
+
+          <p>
+            A ação de 2018, em que os jogadores atuaram com nomes de personalidades negras nas camisas, marcou um
+            divisor de águas na história do clube e da comunicação esportiva no Brasil.
+          </p>
+
+          <p>
+            Mais do que uma campanha de marketing, foi um gesto político, identitário e coletivo, símbolo da nova fase
+            do clube, que reconhecia sua dimensão popular e assumia uma postura de protagonismo social. Lênin destaca
+            que o processo sempre foi colaborativo. </p>
+
+          <audio class="w-full" controls src="assets/videos/Lenin Nucleo de Ações Afirmativas.mp4"></audio>
+
+          <p>
+            Essa estrutura permitia que o Bahia unisse agilidade e profundidade. Algumas campanhas eram planejadas com
+            antecedência, como o próprio Novembro Negro, outras surgiam de forma espontânea, como a ação em resposta às
+            queimadas na Amazônia, desenvolvida e publicada no mesmo dia. Essa capacidade de reagir com sensibilidade e
+            relevância transformou o Bahia em referência nacional de comunicação estratégica, ao alinhar discurso
+            institucional e impacto social.
+
+          </p>
+
+          <p>
+            Enquanto o Bahia consolidava sua narrativa de representatividade, o Vitória também iniciava um processo de
+            reposicionamento. Durante a gestão de Rafael Curvello, entre 2021 e 2023, o clube reformulou sua identidade
+            digital, modernizou sua linguagem e buscou reconectar o torcedor com o sentimento de pertencimento
+            rubro-negro. Ele resume o propósito dessa nova fase:
+          </p>
+
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “A missão era fazer o torcedor se sentir parte do Vitória, mostrar que ele não é apenas um espectador, mas
+              um pedaço vivo dessa história.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Rafael Curvello</p>
+              <p class="text-sm">Publicitário e executivo de marketing esportivo</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="space-y-6 text-lg leading-relaxed my-6">
+          Os resultados não demoraram a aparecer. O canal oficial do clube no YouTube ultrapassou a marca de 50 mil
+          inscritos nesse período, reflexo de um conteúdo mais dinâmico, autêntico e conectado à torcida. Com acesso
+          direto aos bastidores e liberdade criativa, a TV Vitória se consolidou como um verdadeiro canal de
+          pertencimento. Não se tratava apenas de informar, mas de emocionar, representar e valorizar o torcedor
+          rubro-negro.
+
+        </p>
+
+        <div class="w-full">
+          <img src="assets/images/tv-print.png" alt="TV Vitoria no youtube">
+          <!-- <div class="absolute inset-0 bg-fit bg-center" style="background-image: url('')">
+          </div> -->
+
+          <p class="p-4 mx-auto max-w-4xl text-sm text-white md:text-base bg-black">
+            TV Vitória no youtube
+          </p>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="py-20 px-6 bg-white text-black">
+      <div class="mx-auto max-w-4xl" data-aos="fade-up">
+        <div class="space-y-6 text-lg leading-relaxed">
+
+
+          <div class="rounded-lg shadow-2xl bg-black">
+            <div class="flex flex-col text-white items-center py-4" data-aos="flip-left">
+              <video class="aspect-video" controls>
+                <source src="assets/videos/Rafael como as estratégias foram traçadas internam.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">
+                Rafael Curvello
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Esses dois caminhos, o Bahia da democratização e o Vitória do pertencimento, apresentam um movimento mais
+            amplo, o da profissionalização da comunicação esportiva baiana, que se alimenta da interação constante entre
+            o que é institucional e o que é espontâneo, entre o que vem de dentro dos clubes e o que nasce das vozes ao
+            redor deles.
+
+          </p>
+
+          <p>Apesar dos avanços, o caminho da profissionalização na comunicação esportiva brasileira ainda é tortuoso.
+            Muitos clubes, mesmo mergulhados em estruturas cada vez mais complexas, ainda hesitam em se reconhecer como
+            marcas de grande porte, com responsabilidades que ultrapassam o gramado. A visão empresarial do futebol vem
+            crescendo, mas ainda tropeça em velhos hábitos, aqueles impulsos passionais que fazem dirigentes e
+            administradores agirem mais como torcedores exaltados do que como gestores de imagem.
+          </p>
+
+          <p>
+            <strong>Erich Beting</strong>, especialista no tema, observa que alguns clubes já compreenderam a
+            importância de uma postura corporativa e constroem sua comunicação com estratégia e propósito, enquanto
+            outros ainda se perdem em provocações rasas e reações emocionais. Lá fora, exemplos como Manchester United e
+            Barcelona tratam o rival com a distância profissional de quem entende que defender seu torcedor não exige
+            tripudiar do outro. No Brasil, essa maturidade ainda é um aprendizado em andamento, uma lição que se
+            desenrola a cada tweet impulsivo e a cada campanha que ultrapassa o limite do bom senso.
+
+          </p>
+
+          <p>A fala de Beting revela um ponto essencial da digitalização que aproximou clubes e torcedores como nunca
+            antes, mas essa proximidade também cobra responsabilidade. A fronteira entre o entretenimento e a gestão de
+            marca tornou-se cada vez mais fina, e navegar por ela exige sensibilidade, método e, acima de tudo,
+            consciência de que o futebol, hoje, é também narrativa e reputação. O desafio dos próximos anos será
+            equilibrar paixão e profissionalismo sem deixar que um destrua o outro.
+          </p>
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <div class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('assets/images/torcida-tricolor-1946350.jpg');"></div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p class="bg-black mx-auto max-w-4xl text-sm text-white/60 md:text-base">Créditos da imagem: bahia.ba</p>
+      </div>
+    </div>
+
+
+
+    <section id="bloco3" class="py-20 px-6 bg-black text-white">
+      <div class="mx-auto max-w-4xl" data-aos="fade-up">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          Jornalismo e estratégias digitais integradas
+        </h2>
+
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p>
+            No futebol moderno, a comunicação deixou de ser monopólio de um único veículo. Rádio, TV, jornal impresso,
+            redes sociais e canais independentes coexistem, cada um com seu papel e público. O desafio para clubes e
+            profissionais é equilibrar tradição e inovação, integrando canais estabelecidos com novas vozes digitais,
+            sem perder a autenticidade e a conexão com o torcedor.
+          </p>
+
+          <p>
+            Quem viveu essa transformação de perto foi Édson Marinho, radialista da Rádio Metrópole. Com décadas de
+            cobertura esportiva na Bahia, ele acredita que o rádio não apenas sobreviveu, mas se reinventou. Marinho
+            defende que, ao contrário do que se previu com a chegada da TV, o rádio nunca morrerá e que todos os meios -
+            rádio, podcast, internet, redes sociais, jornal e televisão - podem coexistir, pois há espaço para todos.
+          </p>
+
+
+          <div class="float-right m-4 w-80">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video controls>
+                <source src="assets/videos/1029(5).mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <p>
+            Enquanto as redes sociais fragmentaram a atenção, o rádio preservou um vínculo emocional raro com o
+            torcedor,
+            seja no trajeto até o estádio ou na própria arquibancada.
+            No entanto, a integração dessa nova realidade não é simples. Marinho Júnior, filho de Édson e criador do
+            Canal
+            do Puco, representa a nova geração que transformou a comunicação esportiva em um diálogo direto, com
+            linguagem
+            popular e ritmo de rede social.
+          </p>
+
+          <p>
+            Ele reconhece que essa transição enfrenta resistência. Segundo Marinho Júnior, existe um certo preconceito
+            da mídia tradicional contra a mídia independente. Ele aponta que profissionais formados, que batalharam por
+            seu espaço, ainda têm dificuldade em aceitar que qualquer pessoa possa criar um canal e frequentar os mesmos
+            espaços, como coletivas de imprensa.
+          </p>
+
+
+          <div class="float-left m-4 w-80">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video controls>
+                <source src="assets/videos/1029 (7).mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <p>
+            O que distingue o trabalho das mídias independentes, segundo Marinho Júnior, é a liberdade para falar com o
+            torcedor de igual para igual. Embora a estrutura de sua cobertura seja semelhante à dos canais oficiais, com
+            narradores e comentaristas, o torcedor percebe a diferença do formato independente. Essa independência
+            permite uma liberdade para criticar, algo que as TVs dos clubes, por serem mais "blindadas", não fariam,
+            como apontar que um jogador perdeu um gol claro ou que está em má fase.
+          </p>
+
+          <p>
+            Ele reforça, porém, que a independência não significa irresponsabilidade. Marinho Júnior lembra que a
+            internet não é "terra de ninguém" e que é preciso ter cuidado, pois muitos respondem judicialmente pelo que
+            publicam. Trata-se de fazer um trabalho com liberdade, mas com consciência. </p>
+
+          <section class="w-full overflow-x-auto px-6 timeline-container">
+            <div class="min-w-max py-8">
+              <!-- Linha da timeline (track) -->
+              <div class="relative flex items-center gap-12">
+
+
+                <!-- track de fundo estendida -->
+                <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 timeline-track"></div>
+
+
+                <!-- Item 1: 1990s -->
+                <article class="timeline-item relative flex flex-col items-center text-center" data-aos="fade-up"
+                  data-aos-delay="100">
+                  <div class="timeline-node flex items-center justify-center bg-white border-4 border-green-600 shadow">
+                    <!-- ícone rádio -->
+
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 text-blue-600">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M19 4H9C8.07003 4 7.60504 4 7.22354 4.10222C6.18827 4.37962 5.37962 5.18827 5.10222 6.22354C5 6.60504 5 7.08922 5 8.01919M5 8.01919C5.31428 8 5.70173 8 6.2 8H17.8C18.9201 8 19.4802 8 19.908 8.21799C20.2843 8.40973 20.5903 8.71569 20.782 9.09202C21 9.51984 21 10.0799 21 11.2V16.8C21 17.9201 21 18.4802 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.4802 20 18.9201 20 17.8 20H6.2C5.07989 20 4.51984 20 4.09202 19.782C3.71569 19.5903 3.40973 19.2843 3.21799 18.908C3 18.4802 3 17.9201 3 16.8V11.2C3 10.0799 3 9.51984 3.21799 9.09202C3.40973 8.71569 3.71569 8.40973 4.09202 8.21799C4.32953 8.09697 4.60779 8.04314 5 8.01919ZM14 12H18M14 16H18M10 14C10 15.1046 9.10457 16 8 16C6.89543 16 6 15.1046 6 14C6 12.8954 6.89543 12 8 12C9.10457 12 10 12.8954 10 14Z"
+                          stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <time class="mt-4 text-sm font-medium text-white">1990s</time>
+                  <h3 class="mt-2 font-semibold">Auge do rádio esportivo</h3>
+                  <p class="mt-1 text-sm text-white max-w-xs">Rádio como principal fonte de cobertura esportiva
+                    regional — programas locais e transmissões ao vivo de jogos.</p>
+                </article>
+
+
+                <!-- Item 2: 2000–2010 -->
+                <article class="timeline-item relative flex flex-col items-center text-center" data-aos="fade-up"
+                  data-aos-delay="150">
+                  <div class="timeline-node flex items-center justify-center bg-white border-4 border-green-600 shadow">
+                    <!-- ícone TV -->
+
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 text-indigo-600">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22L8 22C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16L2 12C2 9.17157 2 7.75736 2.87868 6.87868C3.75736 6 5.17157 6 8 6L16 6C18.8284 6 20.2426 6 21.1213 6.87868C22 7.75736 22 9.17157 22 12V16Z"
+                          stroke="#1C274C" stroke-width="1.5"></path>
+                        <path d="M9 2L12 5.5L15 2" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M16 6V22" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path
+                          d="M20 16C20 15.4477 19.5523 15 19 15C18.4477 15 18 15.4477 18 16C18 16.5523 18.4477 17 19 17C19.5523 17 20 16.5523 20 16Z"
+                          fill="#1C274C"></path>
+                        <path
+                          d="M20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13C19.5523 13 20 12.5523 20 12Z"
+                          fill="#1C274C"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <time class="mt-4 text-sm font-medium text-white">2000–2010</time>
+                  <h3 class="mt-2 font-semibold">Expansão das TVs locais</h3>
+                  <p class="mt-1 text-sm text-white max-w-xs">Fortalecimento de afiliadas locais e programas
+                    esportivos
+                    regionais (TV Bahia, Band Bahia, Aratu/SBT, etc.).</p>
+                </article>
+
+
+                <!-- Item 3: 2015–2019 -->
+                <article class="timeline-item relative flex flex-col items-center text-center" data-aos="fade-up"
+                  data-aos-delay="200">
+                  <div class="timeline-node flex items-center justify-center bg-white border-4 border-green-600 shadow">
+                    <!-- ícone YouTube/social -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 text-green-600">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M9.49614 7.13176C9.18664 6.9549 8.80639 6.95617 8.49807 7.13509C8.18976 7.31401 8 7.64353 8 8V16C8 16.3565 8.18976 16.686 8.49807 16.8649C8.80639 17.0438 9.18664 17.0451 9.49614 16.8682L16.4961 12.8682C16.8077 12.6902 17 12.3589 17 12C17 11.6411 16.8077 11.3098 16.4961 11.1318L9.49614 7.13176ZM13.9844 12L10 14.2768V9.72318L13.9844 12Z"
+                          fill="#0F0F0F"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M0 12C0 8.25027 0 6.3754 0.954915 5.06107C1.26331 4.6366 1.6366 4.26331 2.06107 3.95491C3.3754 3 5.25027 3 9 3H15C18.7497 3 20.6246 3 21.9389 3.95491C22.3634 4.26331 22.7367 4.6366 23.0451 5.06107C24 6.3754 24 8.25027 24 12C24 15.7497 24 17.6246 23.0451 18.9389C22.7367 19.3634 22.3634 19.7367 21.9389 20.0451C20.6246 21 18.7497 21 15 21H9C5.25027 21 3.3754 21 2.06107 20.0451C1.6366 19.7367 1.26331 19.3634 0.954915 18.9389C0 17.6246 0 15.7497 0 12ZM9 5H15C16.9194 5 18.1983 5.00275 19.1673 5.10773C20.0989 5.20866 20.504 5.38448 20.7634 5.57295C21.018 5.75799 21.242 5.98196 21.4271 6.23664C21.6155 6.49605 21.7913 6.90113 21.8923 7.83269C21.9973 8.80167 22 10.0806 22 12C22 13.9194 21.9973 15.1983 21.8923 16.1673C21.7913 17.0989 21.6155 17.504 21.4271 17.7634C21.242 18.018 21.018 18.242 20.7634 18.4271C20.504 18.6155 20.0989 18.7913 19.1673 18.8923C18.1983 18.9973 16.9194 19 15 19H9C7.08058 19 5.80167 18.9973 4.83269 18.8923C3.90113 18.7913 3.49605 18.6155 3.23664 18.4271C2.98196 18.242 2.75799 18.018 2.57295 17.7634C2.38448 17.504 2.20866 17.0989 2.10773 16.1673C2.00275 15.1983 2 13.9194 2 12C2 10.0806 2.00275 8.80167 2.10773 7.83269C2.20866 6.90113 2.38448 6.49605 2.57295 6.23664C2.75799 5.98196 2.98196 5.75799 3.23664 5.57295C3.49605 5.38448 3.90113 5.20866 4.83269 5.10773C5.80167 5.00275 7.08058 5 9 5Z"
+                          fill="#0F0F0F"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <time class="mt-4 text-sm font-medium text-white">2015–2019</time>
+                  <h3 class="mt-2 font-semibold">Crescimento do YouTube e mídias alternativas</h3>
+                  <p class="mt-1 text-sm text-white max-w-xs">Surgimento de canais independentes de torcedores e
+                    conteúdos alternativos — maior participação digital na pauta esportiva.</p>
+                </article>
+
+
+                <!-- Item 4: 2020–2021 -->
+                <article class="timeline-item relative flex flex-col items-center text-center" data-aos="fade-up"
+                  data-aos-delay="250">
+                  <div class="timeline-node flex items-center justify-center bg-white border-4 border-green-600 shadow">
+                    <!-- ícone live/podcast -->
+
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 text-red-600">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M20 14C20 17.7712 20 19.6569 18.8284 20.8284C17.6569 22 15.7712 22 12 22C8.22876 22 6.34315 22 5.17157 20.8284C4 19.6569 4 17.7712 4 14V10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10"
+                          stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+                        <path d="M15 5H9" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
+                        <circle cx="12" cy="17" r="2" stroke="#1C274C" stroke-width="1.5"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <time class="mt-4 text-sm font-medium text-white">2020–2021</time>
+                  <h3 class="mt-2 font-semibold">Consolidação pós-pandemia</h3>
+                  <p class="mt-1 text-sm text-white max-w-xs">Lives, podcasts e cobertura independentes se
+                    consolidam;
+                    mídias alternativas ganham legitimidade e público.</p>
+                </article>
+
+
+              </div>
+            </div>
+          </section>
+
+          <p>
+            Lênin Franco, que começou sua trajetória na mídia alternativa antes de assumir o marketing do Bahia,
+            enxerga o embate entre o novo e o tradicional como algo inevitável e essencial para o amadurecimento da
+            comunicação esportiva. Para ele, vivemos uma era em que cada indivíduo se tornou uma emissora, produzindo
+            conteúdo no momento e da forma que quiser. Essa mudança, natural para quem nasceu na lógica das redes, foi
+            difícil de ser assimilada por parte da velha guarda do jornalismo, acostumada a deter o controle absoluto
+            sobre o discurso. Muitos profissionais, diz ele, simplesmente não conseguiram se adaptar ao novo ritmo
+            imposto pela internet.
+          </p>
+
+          <p>Lênin também chama atenção para um detalhe muitas vezes subestimado, o poder da atenção ativa. Quando um
+            torcedor escolhe assistir a um canal no YouTube, ele não é um espectador passivo, é um participante.</p>
+
+          <p>A análise de Lênin evidencia a essência da mídia independente, ela não fala para o torcedor, mas com ele. É
+            uma conversa horizontal, feita de reciprocidade e afeto, onde a voz da arquibancada finalmente encontra eco
+            nas telas.
+          </p>
+
+
+          <div class="float-left m-4 w-80">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video controls>
+                <source src="assets/videos/17008.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+
+          <p>
+            Trazendo o ponto de vista institucional, Rafael Curvello, enxerga nesse diálogo um potencial de
+            fortalecimento mútuo. Ele explica que a imprensa tradicional tem um papel fundamental de registro e alcance,
+            enquanto os canais independentes falam direto com o torcedor. Para ele, o segredo não está em escolher um ou
+            outro, mas em entender como essas forças podem trabalhar juntas.
+          </p>
+
+          <p>
+            O clube, portanto, precisou reconhecer os criadores de conteúdo como parceiros na amplificação da marca, e
+            não como rivais. Assim, o clube se posiciona como mediador, conciliando a tradição do rádio com a linguagem
+            dos influenciadores.
+          </p>
+
+          <div class="float-right m-4 w-80">
+            <div class="flex flex-col bg-black text-white items-center py-4" data-aos="flip-left">
+              <video controls>
+                <source src="assets/videos/1029.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <p>
+            Entre essas novas vozes está Anderson Mattos, criador do Canal do Dinâmico, que cobre o Vitória. Ele vê o
+            papel das mídias alternativas como complementar. Anderson avalia que seu trabalho ajuda o clube
+            naturalmente, pois alcança "bolhas" de audiência que os canais oficiais, como a TV Vitória, por vezes não
+            alcançam.
+          </p>
+
+          <p>
+            Anderson Mattos também enxerga na comunicação independente uma forma de manter a paixão viva, especialmente
+            nos momentos difíceis. Ele destaca que o maior patrimônio de um time é o torcedor e que os canais
+            independentes não dependem 100% do desempenho do time, pois se baseiam nessa paixão. Durante o período mais
+            delicado da história recente do Vitória, entre 2019 e 2021, com a queda para a Série C, Anderson manteve o
+            elo com a torcida, continuando a produzir conteúdo mesmo sem vitórias, o que demonstrou a força dessa
+            conexão.
+
+          </p>
+
+          <p>
+            O relato de Anderson resume o papel das mídias independentes: elas não concorrem com a comunicação oficial,
+            elas a complementam. Ao atingir públicos diferentes, esses criadores expandem o alcance das narrativas do
+            clube, gerando engajamento genuíno. O torcedor que acompanha o Canal do Dinâmico pode não assistir à TV
+            Vitória, mas é impactado positivamente pelo clube.
+          </p>
+
+          <audio class="w-full" src="assets/videos/CANAL-IDEPENDETE-COMPLEMENTA-A-COMU.mp3" controls></audio>
+
+          <p>
+            Essa sobreposição de vozes cria uma comunicação em rede. Enquanto o rádio mantém o calor do tempo real, as
+            mídias digitais ampliam o alcance. Os clubes deixam de ser meros emissores e passam a atuar como mediadores,
+            equilibrando tradição e inovação. O desafio é garantir que essa integração preserve o vínculo autêntico com
+            o torcedor.
+          </p>
+
+          <p>
+            As trajetórias de Édson Marinho, Marinho Júnior, Rafael Curvello, Lênin Franco e Anderson Mattos se cruzam
+            como capítulos da reinvenção da comunicação esportiva na Bahia. Essas quatro vozes não se anulam; elas se
+            completam. Juntas, contam a história de uma nova ecologia midiática, na qual as fronteiras entre imprensa,
+            entretenimento e ativação de marca se dissolvem. O futebol baiano vive um momento de convergência, onde o
+            torcedor, mais do que nunca, assume o centro dessa narrativa, participando ativamente do jogo fora das
+            quatro linhas.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="relative group h-64 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="0">
+              <img src="assets/images/SaveClip.App_470218112_18037811327358837_1363167445834262189_n.jpg"
+                alt="Édson Marinho"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30" />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-md">
+                  <strong>Édson Marinho</strong> representa o rádio que
+                  sobrevive ao tempo, sustentado pela emoção e credibilidade.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative group h-64 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up"
+              data-aos-delay="150">
+              <img src="assets/images/SaveClip.App_502711560_18502743481052170_271548515342181841_n.jpg"
+                alt="Marinho Júnior"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30" />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-md">
+                  <strong>Marinho Júnior</strong> personifica a voz
+                  independente que fala ao torcedor sem filtros, com ritmo
+                  digital.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative group h-64 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up"
+              data-aos-delay="300">
+              <img src="assets/images/SaveClip.App_363498356_631652149030413_6714566181576556770_n.jpg"
+                alt="Rafael Curvello"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30" />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-md">
+                  <strong>Rafael Curvello</strong> traz o olhar institucional,
+                  focado em transformar o clube em marca e comunidade.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative group h-64 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up"
+              data-aos-delay="450">
+              <img src="assets/images/SaveClip.App_527292107_18521304130040592_1135260517269388550_n.jpg"
+                alt="Anderson Mattos"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30" />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p class="text-md">
+                  <strong>Anderson Mattos</strong> simboliza o
+                  torcedor-comunicador, que movido pela paixão, transforma o
+                  amor pelo clube em conteúdo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('assets/images/154150,bahia-lidera-com-maior-torcida-do-nordeste-e-o-vitoria-cresce-aparecendo-em-4-lugar-na-pesquisa-3.jpg')">
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p class="bg-black mx-auto max-w-4xl text-sm text-white/60 md:text-base">Créditos da imagem: metro1.com.br</p>
+      </div>
+    </div>
+
+    <section id="bloco4" class="py-20 px-6 bg-white text-black">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          A voz das arquibancadas digitais
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed" data-aos="fade-up">
+          <p>
+            As arquibancadas já não se limitam às cadeiras de cimento ou aos gritos do estádio. Hoje, elas se estendem
+            pelas telas, em vídeos, transmissões, tweets e comentários que percorrem o feed dos torcedores. É ali que o
+            futebol baiano encontrou uma nova forma de se comunicar, de forma espontânea, participativa e apaixonada.
+            Nesse cenário, os influenciadores e as mídias independentes se tornaram vozes legítimas da torcida,
+            aproximando clubes e fãs com a linguagem da rua e o olhar de quem sente o jogo por dentro.
+
+          </p>
+          <p>
+            O Bahia foi um dos primeiros clubes do país a entender esse movimento e abraçá-lo de forma institucional.
+            Lênin Franco, lembra que a equipe chegou a transformar a irreverência das redes em conteúdo oficial.
+          </p>
+
+          <audio class="w-full" src="assets/videos/Lenin APP corneteiros.mp4" controls></audio>
+
+          <p>
+            A iniciativa simbolizou uma virada cultural, o clube que antes falava para o torcedor passou a falar com
+            ele. Ao legitimar a crítica e a espontaneidade, o Bahia mostrava que o conteúdo produzido pelos próprios fãs
+            não era ameaça, era ativo de marca. Esse entendimento se espalhou e inspirou outros clubes, como o Vitória,
+            que começou a construir pontes com sua base digital a partir do diálogo com influenciadores e criadores de
+            conteúdo.
+          </p>
+
+          <p>
+            Um dos nomes mais representativos dessa nova geração é Yuri Figueiredo, criador do canal ECVídeos, voltado
+            ao Esporte Clube Vitória. Com mais de 40 mil inscritos no YouTube e 50 mil seguidores no Instagram, Yuri
+            transformou o amor pelo clube em conteúdo, e o conteúdo em ponto de encontro para milhares de rubro-negros.
+
+          </p>
+
+          <p>
+            Segundo ele, os criadores de conteúdo ajudaram o Vitória a compreender melhor o próprio torcedor e a
+            repensar a forma como se comunica:
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “O trabalho dos influencers teve sim uma importância para a comunicação do clube entender como se
+              comunicar melhor com o torcedor, visto que os influencers são torcedores de arquibancada.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Yuri Figueiredo</p>
+              <p class="text-sm">Criador do canal ECVídeos</p>
+            </div>
+          </div>
+
+          <p>
+            A influência das mídias independentes ficou especialmente evidente em momentos delicados. Quando o Vitória
+            enfrentava fases difíceis, com rebaixamentos e crises dentro de campo, canais como o ECVídeos e o Canal do
+            Leão mantiveram viva a conexão emocional com a torcida. Enquanto o clube tentava se reorganizar, Yuri
+            produzia conteúdos, relembrava conquistas e reforçava o sentimento de pertencimento. Assim, mesmo na Série
+            C, o canal seguia como um ponto de resistência, ajudando a sustentar a autoestima da torcida e ampliando o
+            alcance das mensagens do clube.
+
+          </p>
+
+          <p>
+            Essa relação de confiança acabou se transformando em parceria. Nos últimos anos, Yuri participou de
+            campanhas oficiais, de lançamentos de lojas a ações com patrocinadores e eventos de marketing, que simboliza
+            a aproximação entre o Vitória e sua base digital. O influenciador destaca que essa troca humaniza o clube e
+            faz o torcedor se sentir parte da rotina:
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Hoje o Vitória se comunica com o torcedor de forma mais próxima, com conteúdos que mostram bastidores,
+              treinos e conversas mais informais. Isso aproxima o torcedor do time e faz ele se sentir mais pertencente”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Yuri Figueiredo</p>
+              <p class="text-sm">Criador do canal ECVídeos</p>
+            </div>
+          </div>
+
+          <div class="rounded-lg shadow-2xl bg-black">
+            <div class="flex flex-col text-white items-center py-4" data-aos="flip-left">
+              <video class="aspect-video" controls>
+                <source src="assets/videos/Yuri Comunicação dos influencers com o clube.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">
+                Yuri Figueiredo
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Mais do que audiência, os canais independentes oferecem algo que nem sempre cabe nas comunicações oficiais:
+            identificação. O torcedor que acompanha o ECVídeos se vê refletido ali, com as mesmas emoções, o mesmo
+            vocabulário e as mesmas frustrações. É esse tom autêntico que faz o público confiar e se engajar.
+
+          </p>
+
+          <p>
+            Os números confirmam essa virada. Nos últimos anos, Bahia e Vitória ampliaram suas receitas por meio de
+            ações de marketing, parcerias comerciais e estratégias digitais que fortaleceram suas marcas e consolidaram
+            o torcedor no centro das decisões. Mais do que simplesmente divulgar, o desafio agora é gerar valor,
+            transformando cada ação de comunicação em um gesto de aproximação e fidelização.
+
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Estão informando o torcedor com a linguagem que o torcedor entende. Quando ele vê nos canais
+              independentes um cara que é como ele, que é da arquibancada, ele se identifica mais.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Yuri Figueiredo</p>
+              <p class="text-sm">Criador do canal ECVídeos</p>
+            </div>
+          </div>
+
+          <p>
+            Yuri cita como inspiração uma das campanhas mais emblemáticas da história recente do Vitória, a de doação de
+            sangue, em 2012, quando as listras vermelhas da camisa voltavam gradualmente à medida que os torcedores
+            doavam sangue. “Foi muito bacana ver a cada jogo as listras vermelhas aumentando até completar a camisa
+            toda”, recorda. Para ele, ações como essa provam que a relação entre clube e torcida é construída na emoção
+            e na participação, os mesmos pilares que sustentam hoje a comunicação digital.
+          </p>
+
+
+          <p>
+            No Bahia, essa relação entre influenciadores e clube também é marcada por altos e baixos. Marinho Jr., o
+            Puco, influenciador e torcedor ativo do Tricolor, reconhece o impacto das novas mídias, mas chama atenção
+            para a responsabilidade que vem com a visibilidade.
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Tem gente que se passa, tem gente que se perde no nível de influenciador e acha que pode tudo. [...] A
+              palavra já diz: influenciar pessoas. Então, se você quer influenciar, precisa ter responsabilidade.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Marinho Jr.</p>
+              <p class="text-sm">Criador do canal do Puco</p>
+            </div>
+          </div>
+
+          <p>
+            Puco destaca que parte da desconfiança que o Bahia demonstra hoje com alguns influenciadores vem de
+            experiências passadas, casos de excessos, conflitos e até processos judiciais. Para ele, o relacionamento
+            precisa ser reconstruído com base na confiança e no respeito mútuo, sem que se perca o senso crítico que
+            caracteriza a torcida.
+          </p>
+
+          <div class="rounded-lg shadow-2xl bg-black">
+            <div class="flex flex-col text-white items-center py-4" data-aos="flip-left">
+              <video class="aspect-video" controls>
+                <source src="assets/videos/Marinho Jr Relação Bahia e influencers.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="text-lg font-semibold text-foreground">
+                Marinho Jr
+              </p>
+            </div>
+          </div>
+
+          <p>Mesmo com esses desafios, ele elogia o legado deixado por Lênin Franco na comunicação tricolor:</p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “O momento ali da gestão de marketing do Bahia com o Lênin Franco foi uma sequência de maravilhosas ações.
+              Ele era um cara que saiu da arquibancada para virar diretor de marketing. Sabia muito do que estava
+              pegando do clube e jogando pra arquibancada.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Marinho Jr.</p>
+              <p class="text-sm">Criador do canal do Puco</p>
+            </div>
+          </div>
+
+          <p>
+            O olhar de quem veio das arquibancadas, como Lênin, foi essencial para construir campanhas que dialogassem
+            com a identidade popular e cultural do clube, das homenagens às raízes africanas às ações de afirmação
+            racial e social. O Bahia transformou causas em bandeiras, e bandeiras em orgulho.
+
+          </p>
+
+          <div class="space-y-6 text-lg leading-relaxed my-6">
+
+
+            <div id="default-carousel" class="relative w-full" data-carousel="static">
+              <!-- Carousel wrapper -->
+              <div class="relative h-164 overflow-hidden rounded-lg md:h-164">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/blog-super-vitoria.webp"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">O time de futebol Vitória, da Bahia, lançou a
+                      campanha "Meu
+                      sangue é rubro-negro", removendo temporariamente o vermelho do uniforme para incentivar a doação
+                      de
+                      sangue ao Hemocentro da Bahia (Hemoba).</p>
+                  </div>
+                </div>
+
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/68ce9cfe3c3b1_WhatsApp Image 2025-09-20 at 09.03.02.jpeg"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">O Esporte Clube Vitória lançou a campanha "Dor
+                      escondida não
+                      cura" para o Setembro Amarelo, usando mensagens ocultas nos uniformes e diversas ações no estádio
+                      para incentivar pessoas com sofrimento mental a não esconderem seus sentimentos e procurarem ajuda
+                      especializada.</p>
+                  </div>
+                </div>
+
+
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/473997219_18481621870029656_561563249980252816_n.jpg"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">Em apoio ao Dia Mundial de Conscientização sobre o
+                      Autismo,
+                      uma nova camisa especial feita pela @somosvolt foi lançada para promover respeito e inclusão, com
+                      parte do valor das vendas sendo destinada a organizações sociais que trabalham com a causa.</p>
+                  </div>
+                </div>
+
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/049A4055-Enhanced-NR-1-scaled.jpg"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">O Esporte Clube Bahia SAF, a PUMA e a Warner Bros.
+                      Discovery
+                      Global Consumer Products lançaram um uniforme especial e limitado inspirado no Superman, marcando
+                      a
+                      primeira vez que um time brasileiro tem uma camisa oficial de Super-Herói, coincidindo com a
+                      estreia
+                      do novo filme do personagem.</p>
+                  </div>
+                </div>
+
+
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/GxIo5C-X0AAygrE.jpg"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">Em uma ação de incentivo à adoção, os jogadores do
+                      Bahia
+                      entraram em campo vestidos de Superman e acompanhados por cães da Associação Brasileira Protetora
+                      dos Animais (ABPA), divulgando um PIX para doações à instituição.</p>
+                  </div>
+                </div>
+
+
+
+                <div class="hidden duration-700 ease-in-out group" data-carousel-item>
+                  <img src="assets/images/KWGSHHR3XHHMCO6NCLFBRX237Q.jpg"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt="...">
+                  <!-- Overlay no hover -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-center text-2xl w-120">Em protesto contra o desastre ambiental nas praias
+                      nordestinas, o Bahia jogará contra o Ceará com uma camisa "manchada de óleo" para questionar a
+                      responsabilidade e a impunidade pelo vazamento.</p>
+                  </div>
+                </div>
+
+
+
+              </div>
+              <!-- Slider indicators -->
+              <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                  data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                  data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                  data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                  data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                  data-carousel-slide-to="4"></button>
+              </div>
+              <!-- Slider controls -->
+              <button type="button"
+                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-prev>
+                <span
+                  class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                  <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5 1 1 5l4 4" />
+                  </svg>
+                  <span class="sr-only">Anterior</span>
+                </span>
+              </button>
+              <button type="button"
+                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-next>
+                <span
+                  class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                  <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 9 4-4-4-4" />
+                  </svg>
+                  <span class="sr-only">Proximo</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <p>
+            Essa convergência entre torcedores, influenciadores e clubes não é uma tendência passageira, é parte de uma
+            transformação estrutural no modo como o futebol se comunica. O especialista em marketing esportivo Erich
+            Beting destaca que o influenciador se tornou um elo estratégico entre marca e comunidade.
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “O influencer virou uma mídia própria, alternativa. Para o clube, ele é essencial estar próximo — com o
+              maior cuidado que isso pode representar, para o bem e para o mal. [...] A chave do negócio é a
+              autenticidade.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Erich Beting</p>
+              <p class="text-sm">Fundador do site Máquina do Esporte</p>
+            </div>
+          </div>
+
+          <p>
+            Beting observa que o crescimento do marketing de influência é um fenômeno global, e que o Brasil, com sua
+            paixão e criatividade, tornou-se referência nesse campo. Para ele, os clubes precisam enxergar os
+            influenciadores como parceiros estratégicos, capazes de potencializar campanhas, reverter momentos de crise
+            e traduzir a emoção do torcedor em engajamento real.
+
+          </p>
+
+          <p>
+            Ao compreender esse papel, Bahia e Vitória passam a enxergar seus influenciadores não apenas como fãs
+            engajados, mas como agentes de comunicação capazes de sustentar, amplificar e até proteger a reputação do
+            clube. São pontes vivas entre a marca e arquibancada, o elo entre o coração do torcedor e o discurso
+            institucional.
+          </p>
+        </div>
+
+
+      </div>
+    </section>
+
+    <div class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('assets/images/tv-podcast.png')"></div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p class="bg-black mx-auto max-w-4xl text-sm text-white/60 md:text-base">Créditos da imagem: TV Vitória
+          (Youtube)</p>
+
+      </div>
+    </div>
+
+    <section id="bloco5" class="py-20 px-6 bg-black text-white">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          Comunicar para sobreviver: o desafio dos clubes do interior
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed" data-aos="fade-up">
+          <p>
+            Se nos blocos anteriores ficou claro como Bahia e Vitória lidam com influenciadores, torcedores e
+            estratégias de comunicação em estruturas grandes e cada vez mais profissionalizadas, o cenário muda
+            completamente quando o foco se desloca para o interior do estado. Ali, comunicar não é apenas uma área do
+            clube, é também improviso, aprendizado e, muitas vezes, sobrevivência.
+
+          </p>
+          <p>
+            É o caso do Jacuipense, clube de Riachão do Jacuípe, que nos últimos anos se consolidou como uma das forças
+            do interior. À frente da comunicação do Leão Grená está Lucas Pena, que expressa a realidade de dezenas de
+            clubes do estado, com poucos recursos, equipes reduzidas e a necessidade de aprender tudo fazendo.
+
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “O Jacuipense é um clube de interior, um clube menor de expressão, então a gente não tem tanta verba. A
+              gente se vira com o que tem. E isso acaba sendo um desafio. Acho que essa é a parte gostosa também de você
+              aprender cada vez mais.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Lucas Pena</p>
+              <p class="text-sm">Comunicação do Leão Grená</p>
+            </div>
+          </div>
+
+          <p>
+            Na prática, isso significa acumular funções. Lucas fotografa, filma, cobre jogos da base e do profissional,
+            acompanha viagens e ainda cumpre o papel de assessor de imprensa, organizando entrevistas e preparando os
+            jogadores para falar com a mídia.
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Eu mesmo cheguei no Jacuipense e não sabia fotografar bem. Hoje eu me considero um fotógrafo esportivo,
+              meus amigos me consideram fotógrafo esportivo. Eu me especializei naquilo, gostei tanto que tenho meu
+              material hoje, invisto nisso. Você acaba aprendendo não só no que você é bom.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Lucas Pena</p>
+              <p class="text-sm">Comunicação do Leão Grená</p>
+            </div>
+          </div>
+
+
+          <p>
+            Quando o calendário nacional desaparece, como ocorreu em 2025, em que o clube não teve Série D, Copa do
+            Brasil ou Copa do Nordeste, a comunicação se concentra na divisão de base, que se tornou um dos maiores
+            ativos do Jacuipense, responsável por revelar jogadores que hoje atuam em clubes como Red Bull Bragantino e
+            Botafogo.
+          </p>
+
+          <audio class="w-full" src="assets/videos/dinamica dos clubes pequenos quando não tem calendario.mp4"
+            controls></audio>
+
+          <p>
+            Além de criar conteúdo, a equipe precisa manter o relacionamento com a imprensa, gerando pauta e
+            alimentando jornalistas com informações sobre jogos, renovações e novidades do clube. Lucas explica que esse
+            cuidado não é apenas institucional, ele também ajuda os jogadores a construírem sua imagem e se posicionarem
+            frente à mídia.
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Ninguém ganha prêmio de melhor do mundo só jogando no campo. O cara tem que saber se posicionar, falar,
+              dar uma entrevista. Então eu brinco com eles: ‘Hoje nossa Champions League é aqui, com a gente fazendo o
+              trabalho de comunicação’.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Lucas Pena</p>
+              <p class="text-sm">Comunicação do Leão Grená</p>
+            </div>
+          </div>
+
+          <p>
+            No interior, a cooperação entre clubes é outra peça-chave para o funcionamento da comunicação. Em viagens,
+            troca de contatos, envio de fotos e suporte mútuo ajudam clubes com menos estrutura a se manterem ativos na
+            cobertura dos jogos.
+          </p>
+
+          <audio class="w-full" src="assets/videos/relacionamento entre clubes do interior.mp4" controls></audio>
+
+
+          <p>
+            Mas nem tudo são facilidades. No Baianão, rivalidades regionais e briga por posição, podem dificultar o
+            intercâmbio de informações, seja trocando escalações ou repassando fotos de jogos. Apesar de alguns
+            incidentes, Lucas reforça que a colaboração ainda é a regra:
+          </p>
+
+          <div class="my-16 border-l-4 border-green-400 pl-8 transition-all duration-1000 opacity-100 translate-x-0">
+            <blockquote class="text-2xl font-light italic leading-relaxed md:text-3xl">
+              “Claro que tem aquelas dificuldades. Mas a maioria ajuda muito. Até gosto de dizer: ‘não tem sabor melhor
+              do
+              que ajudar alguém quando o meu time ganha’. A gente compartilha, respeita, mas ajuda. Isso é o que mantém
+              o
+              futebol do interior funcionando.”
+            </blockquote>
+            <div class="mt-6">
+              <p class="font-semibold">Lucas Pena</p>
+              <p class="text-sm">Comunicação do Leão Grená</p>
+            </div>
+          </div>
+
+          <p>
+            No fim das contas, comunicar no interior da Bahia é dominar várias funções, improvisar, formar novos
+            profissionais e aprender na prática. Para clubes como o Jacuipense, a comunicação vai muito além de
+            publicações nas redes, é a junção entre a sobrevivência, visibilidade e valorização do trabalho local.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+        style="background-image: url('assets/images/torcida-tricolor-1946350.jpg')"></div>
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+        <p class="bg-black mx-auto max-w-4xl text-sm text-white/60 md:text-base">Créditos da imagem: Correios24Horas</p>
+
+      </div>
+    </div>
+
+    <section id="bloco6" class="py-20 px-6 bg-black text-white">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-8 text-4xl font-bold md:text-5xl text-left">
+          Marketing esportivo: paixão que gera resultados
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed" data-aos="fade-up">
+          <p>
+            Antes de mergulhar nos números e estratégias, é importante compreender o contexto dessa transformação.
+          </p>
+          <p>
+            O marketing esportivo deixou de ser apenas uma vitrine de comunicação e passou a ocupar um papel central na
+            geração de receitas, no fortalecimento da marca e na construção de comunidades de torcedores.
+
+          </p>
+          <p>
+            Segundo o jornalista e especialista em marketing esportivo Erich Beting, essa mudança reflete uma nova
+            mentalidade dentro dos clubes, uma percepção mais estratégica sobre o valor do engajamento e da narrativa.
+            Ele observa também a singularidade do mercado brasileiro nas redes sociais, especialmente quando comparado
+            ao cenário europeu:
+          </p>
+
+          <audio class="w-full" src="assets/videos/Erich AUDIO peso dos torcedores na forma de mkrtng.mp4"
+            controls></audio>
+
+          <p>
+            Segundo o jornalista e especialista em marketing esportivo Erich Beting, essa mudança reflete uma nova
+            mentalidade dentro dos clubes, uma percepção mais estratégica sobre o valor do engajamento e da narrativa.
+            Ele observa também a singularidade do mercado brasileiro nas redes sociais, especialmente quando comparado
+            ao cenário europeu.
+
+          </p>
+
+          <p>
+            Na prática, isso significa que Bahia e Vitória podem, sim, aprender com os modelos internacionais, mas
+            também têm espaço para ousar. Campanhas irreverentes, memes, influenciadores e conteúdos exclusivos
+            tornaram-se ferramentas poderosas, capazes de gerar resultados de engajamento mais diretos e orgânicos do
+            que em mercados excessivamente controlados. O Brasil, nesse sentido, funciona como um observatório de
+            marketing esportivo digital, onde a criatividade é o principal ativo e a paixão é o combustível que move
+            tudo.
+
+          </p>
+
+          <p>
+            Os números confirmam essa virada. Nos últimos anos, Bahia e Vitória ampliaram suas receitas por meio de
+            ações de marketing, parcerias comerciais e estratégias digitais que fortaleceram suas marcas e consolidaram
+            o torcedor no centro das decisões. Mais do que simplesmente divulgar, o desafio agora é gerar valor,
+            transformando cada ação de comunicação em um gesto de aproximação, pertencimento e fidelização.
+
+          </p>
+        </div>
+
+        <div class="my-6 w-full max-w-7xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8">
+          <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">
+            Comparativo de Seguidores: Bahia vs. Vitória (2020 vs. 2025) - credito IBOPE REPUCOM
+          </h1>
+          <div class="relative h-[70vh] max-h-[650px] w-full">
+            <canvas id="socialChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white px-8 py-2 text-center flex items-center justify-around flex-col md:flex-row">
+      <div>
+        <img class="w-60" src="assets/images/logo.png" alt="Logo Marcas em Campo" />
+        <img class="w-60" src="assets/images/unijorge.avif" alt="Logo unijorge" />
+      </div>
+
+      <div class="">
+        <h3 class="font-bold">
+          Marcas em Campo
+        </h3>
+        <p>
+          Projeto de Conclusão do curso de Jornalismo do Centro Universitário Jorge Amado.
+        </p>
+        <p> <b>Reportagem por: </b>Douglas Reis,
+          Paloma Matos e Ricardo Magalhães.</p>
+        <p><b>Orientação: </b>Mariana Alcântara e Leonardo Bião.</p>
+        <p>
+          <b>Desenvolvedor do site:</b>
+          <a href="https://www.linkedin.com/in/leandro-campos-750388214/" target="_blank" rel="noopener"
+            class="text-yellow-400 underline">Leandro Campos</a>
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    AOS.init();
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctx = document.getElementById('socialChart').getContext('2d');
+
+      // Dados fornecidos pelo usuário
+      const labels = ['Facebook', 'Twitter', 'Instagram', 'YouTube', 'TikTok'];
+
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Bahia 2020',
+            data: [1118227, 1449143, 669064, 131000, 120500],
+            backgroundColor: 'rgba(0, 119, 182, 0.8)', // Azul Bahia
+            borderColor: 'rgba(0, 119, 182, 1)',
+            borderWidth: 1,
+            borderRadius: 4
+          },
+          {
+            label: 'Vitória 2020',
+            data: [492053, 1132221, 350697, 51500, 54600],
+            backgroundColor: 'rgba(218, 41, 28, 0.8)', // Vermelho Vitória
+            borderColor: 'rgba(218, 41, 28, 1)',
+            borderWidth: 1,
+            borderRadius: 4
+          },
+          {
+            label: 'Bahia 2025',
+            data: [1100000, 1587536, 1957646, 394000, 588800],
+            backgroundColor: 'rgba(0, 180, 216, 0.8)', // Azul Bahia (Claro)
+            borderColor: 'rgba(0, 180, 216, 1)',
+            borderWidth: 1,
+            borderRadius: 4
+          },
+          {
+            label: 'Vitória 2025',
+            data: [718000, 1126708, 669064, 1808014, 605100],
+            backgroundColor: 'rgba(255, 100, 87, 0.8)', // Vermelho Vitória (Claro)
+            borderColor: 'rgba(255, 100, 87, 1)',
+            borderWidth: 1,
+            borderRadius: 4
+          }
+        ]
+      };
+
+      // Configurações do gráfico
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {
+          // Mantém o gráfico responsivo ao tamanho do container
+          responsive: true,
+          // Desativa a manutenção da proporção para preencher o container
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top', // Posição da legenda
+              labels: {
+                font: {
+                  size: 14,
+                  family: 'Inter, sans-serif'
+                }
+              }
+            },
+            title: {
+              display: true,
+              text: 'Número de Seguidores por Rede Social',
+              font: {
+                size: 18,
+                family: 'Inter, sans-serif',
+                weight: '600'
+              },
+              padding: {
+                top: 10,
+                bottom: 20
+              }
+            },
+            tooltip: {
+              // Formata os números na dica (tooltip) com separador de milhar
+              callbacks: {
+                label: function (context) {
+                  let label = context.dataset.label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                    label += new Intl.NumberFormat('pt-BR').format(context.parsed.y);
+                  }
+                  return label;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              // Título do eixo X
+              title: {
+                display: true,
+                text: 'Rede Social',
+                font: {
+                  size: 16,
+                  weight: '500',
+                  family: 'Inter, sans-serif'
+                },
+                color: '#374151'
+              },
+              ticks: {
+                font: {
+                  size: 12,
+                  family: 'Inter, sans-serif'
+                }
+              }
+            },
+            y: {
+              // Título do eixo Y
+              title: {
+                display: true,
+                text: 'Número de Seguidores',
+                font: {
+                  size: 16,
+                  weight: '500',
+                  family: 'Inter, sans-serif'
+                },
+                color: '#374151'
+              },
+              ticks: {
+                font: {
+                  size: 12,
+                  family: 'Inter, sans-serif'
+                },
+                // Formata os números no eixo Y para serem mais curtos (ex: 1.5M)
+                callback: function (value, index, values) {
+                  if (value >= 1000000) {
+                    return (value / 1000000).toFixed(1) + 'M';
+                  } else if (value >= 1000) {
+                    return (value / 1000).toFixed(0) + 'K';
+                  }
+                  return value;
+                }
+              },
+              beginAtZero: true
+            }
+          }
+        }
+      };
+
+      // Cria o gráfico
+      new Chart(ctx, config);
+    });
+
+    const targetEl = document.getElementById('navbar-default');
+    const triggerEl = document.getElementById('navbar-button');
+    const collapse = new Collapse(targetEl, triggerEl);
+
+    // Add global click listener
+    document.addEventListener('click', function (event) {
+      const isClickInsideMenu = targetEl.contains(event.target);
+      const isClickOnTrigger = triggerEl.contains(event.target);
+
+      // If click is outside both the menu and the trigger, and the menu is open, hide it
+      if (!isClickInsideMenu && !isClickOnTrigger && !targetEl.classList.contains('hidden')) {
+        collapse.collapse(); // Use the collapse method to hide it
+      }
+    })
+  </script>
+</body>
+
+</html>
