@@ -12,8 +12,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <script src="https://unpkg.com/@panzoom/panzoom@4.6.0/dist/panzoom.min.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <title>Marcas Em Campo</title>
-
   <style>
     section[id] {
       scroll-margin-top: 70px;
@@ -87,6 +87,14 @@
 </head>
 
 <body>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
   <nav class="border-gray-200 bg-black sticky top-0 z-20">
     <div class="max-w-screen-4xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="index.html">
@@ -104,10 +112,7 @@
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul
           class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:bg-black md:border-0 bg-gray-800 border-gray-700">
-          <li>
-            <a href="#"
-              class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Inicío</a>
-          </li>
+
           <li>
             <a href="#bloco1"
               class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">A
@@ -146,7 +151,7 @@
               Além do Placar</a>
           </li>
           <li>
-            <a href="biografias/index.html"
+            <a href="biografias.html"
               class="block py-2 px-3 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 text-white md:hover:text-green-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">Biografias</a>
           </li>
         </ul>
@@ -197,11 +202,12 @@
           <p>
             Em Canabrava, um torcedor do Vitória acordou antes mesmo do despertador. Abre o armário e escolhe a camisa
             com cuidado, a mesma de tantas histórias, de vitórias e tropeços. Pega a bandeira, confere se o celular está
-            carregado e segue rumo ao estacionamento do Barradão. Hoje é dia de jogo!
+            carregado e segue rumo ao estacionamento do Barradão. <strong>Hoje é dia de jogo!</strong>
           </p>
           <p>
             Do outro lado da cidade, em Brotas, uma torcedora do Bahia se arruma com o mesmo ritual. Combina o look com
-            a namorada, ajusta o lenço azul no cabelo e grava o primeiro story do dia: “Hoje tem Esquadrão na Fonte!”
+            a namorada, ajusta o lenço azul no cabelo e grava o primeiro story do dia: <strong>“Hoje tem Esquadrão na
+              Fonte!”</strong>
           </p>
           <p>
             Cada um com sua cor, sua história, sua fé no resultado. Eles não se encontram nas arquibancadas, mas se
@@ -232,7 +238,11 @@
           </p>
           <p>
             Onde o grito que antes parava no alambrado atravessou timelines e transmissões.
-            E onde Bahia e Vitória, dois gigantes de histórias e paixões opostas, aprendem a dialogar com uma torcida
+            E onde <a class="text-underline text-blue-400"
+              href="https://www.instagram.com/ecbahia?igsh=MWV5NWpmNDIxNnVxaw%3D%3D" target="_blank">Bahia</a> e <a
+              class="text-underline text-blue-400"
+              href="https://www.instagram.com/ecvitoria?igsh=MWFjejdxbTJlZ3o5Yw%3D%3D" target="_blank">Vitória</a>, dois
+            gigantes de histórias e paixões opostas, aprendem a dialogar com uma torcida
             que já não só assiste, mas participa, questiona, cria e move o jogo fora das quatro linhas.
 
           </p>
@@ -261,7 +271,9 @@
           </p>
 
           <p>
-            Quem responde é Marinho Júnior, criador de conteúdo do Bahia, que reflete sobre o papel das mídias
+            Quem responde é <a class="text-underline text-blue-400"
+              href="https://www.instagram.com/marinhojrpuco?igsh=a3JvNmE1eTFmbmQ5" target="_blank">Marinho Júnior</a>,
+            criador de conteúdo do Bahia, que reflete sobre o papel das mídias
             alternativas e sobre como elas dialogam, ou tensionam, a relação com a comunicação oficial do clube.
           </p>
 
@@ -289,7 +301,7 @@
           Quando a Torcida Vira Voz
         </h2>
         <h3 class="my-4 text-2xl font-bold text-left">
-          a Virada de Comunicação no Futebol da Bahia
+          A Virada de Comunicação no Futebol da Bahia
         </h3>
         <div class="mt-8 space-y-6 text-lg leading-relaxed">
           <p>
@@ -304,7 +316,9 @@
           </p>
 
           <p>
-            Essa mudança não aconteceu do dia para a noite. Como explica o jornalista e executivo Erich Beting, fundador
+            Essa mudança não aconteceu do dia para a noite. Como explica o jornalista e executivo <a
+              class="text-underline text-blue-400" href="https://www.instagram.com/erichbeting?igsh=czVqdXBmMmFycnc1"
+              target="_blank">Erich Beting</a>, fundador
             do site Máquina do Esporte, o mercado esportivo brasileiro vem passando por um processo constante de
             amadurecimento:
           </p>
@@ -347,7 +361,9 @@
           <p>
             No estado da Bahia, esse processo ganha contornos muito particulares. O Bahia, ao longo da última década,
             foi pioneiro ao entender a comunicação não como ferramenta de marketing, mas como expressão de propósito
-            institucional. Entre 2013 e 2021, sob a liderança de Lênin Franco, o departamento de marketing do clube se
+            institucional. Entre 2013 e 2021, sob a liderança de <a class="text-underline text-blue-400"
+              href="https://www.instagram.com/leninfranco?igsh=czc1enY4bXg0bDdm" target="_blank">Lênin Franco</a>, o
+            departamento de marketing do clube se
             transformou em um laboratório de inovação social e narrativa. Lenin, que vinha da mídia independente, trouxe
             uma visão que aproximava o clube do seu povo, um movimento que ele mesmo descreve como uma reconstrução:
 
@@ -389,7 +405,9 @@
 
           <p>
             Enquanto o Bahia consolidava sua narrativa de representatividade, o Vitória também iniciava um processo de
-            reposicionamento. Durante a gestão de Rafael Curvello, entre 2021 e 2023, o clube reformulou sua identidade
+            reposicionamento. Durante a gestão de <a class="text-underline text-blue-400"
+              href="https://www.instagram.com/rafael.curvello?igsh=NXFrbzh2cm42MGI%3D" target="_blank">Rafael
+              Curvello</a>, entre 2021 e 2023, o clube reformulou sua identidade
             digital, modernizou sua linguagem e buscou reconectar o torcedor com o sentimento de pertencimento
             rubro-negro. Ele resume o propósito dessa nova fase:
           </p>
@@ -410,7 +428,9 @@
         <p class="space-y-6 text-lg leading-relaxed my-6">
           Os resultados não demoraram a aparecer. O canal oficial do clube no YouTube ultrapassou a marca de 50 mil
           inscritos nesse período, reflexo de um conteúdo mais dinâmico, autêntico e conectado à torcida. Com acesso
-          direto aos bastidores e liberdade criativa, a TV Vitória se consolidou como um verdadeiro canal de
+          direto aos bastidores e liberdade criativa, a <a class="text-underline text-blue-400"
+            href="https://www.youtube.com/channel/UCT2ACrmb364amkLW8L8IhBA" target="_blank">TV Vitória</a> se consolidou
+          como um verdadeiro canal de
           pertencimento. Não se tratava apenas de informar, mas de emocionar, representar e valorizar o torcedor
           rubro-negro.
 
@@ -514,7 +534,9 @@
           </p>
 
           <p>
-            Quem viveu essa transformação de perto foi Édson Marinho, radialista da Rádio Metrópole. Com décadas de
+            Quem viveu essa transformação de perto foi <a class="text-underline text-blue-400"
+              href="https://www.instagram.com/edsonmarinhooficial?igsh=MWk4czV2eDJobGljMg%3D%3D" target="_blank">Édson
+              Marinho</a>, radialista da Rádio Metrópole. Com décadas de
             cobertura esportiva na Bahia, ele acredita que o rádio não apenas sobreviveu, mas se reinventou. Marinho
             defende que, ao contrário do que se previu com a chegada da TV, o rádio nunca morrerá e que todos os meios -
             rádio, podcast, internet, redes sociais, jornal e televisão - podem coexistir, pois há espaço para todos.
@@ -535,8 +557,7 @@
             torcedor,
             seja no trajeto até o estádio ou na própria arquibancada.
             No entanto, a integração dessa nova realidade não é simples. Marinho Júnior, filho de Édson e criador do
-            Canal
-            do Puco, representa a nova geração que transformou a comunicação esportiva em um diálogo direto, com
+            <a class="text-underline text-blue-400" href="https://www.youtube.com/@canaldopuco" target="_blank">Canal do Puco</a>, representa a nova geração que transformou a comunicação esportiva em um diálogo direto, com
             linguagem
             popular e ritmo de rede social.
           </p>
@@ -580,7 +601,7 @@
 
 
                 <!-- Linha da timeline (track) -->
-                <div class="relative flex items-stretch gap-12">
+                <div class="relative flex items-stretch gap-20">
 
 
                   <!-- track de fundo estendida -->
@@ -890,7 +911,7 @@
           </div>
 
           <p>
-            Entre essas novas vozes está Anderson Mattos, criador do Canal do Dinâmico, que cobre o Vitória. Ele vê o
+            Entre essas novas vozes está <a class="text-underline text-blue-400" href="https://www.instagram.com/andersonmatos93?igsh=MTNpeGc0aWdkaXI4dQ%3D%3D" target="_blank">Anderson Mattos</a>, criador do <a class="text-underline text-blue-400" href="https://www.youtube.com/@canaldodinamico" target="_blank">Canal do Dinâmico</a>, que cobre o Vitória. Ele vê o
             papel das mídias alternativas como complementar. Anderson avalia que seu trabalho ajuda o clube
             naturalmente, pois alcança "bolhas" de audiência que os canais oficiais, como a TV Vitória, por vezes não
             alcançam.
@@ -1035,7 +1056,7 @@
           </p>
 
           <p>
-            Um dos nomes mais representativos dessa nova geração é Yuri Figueiredo, criador do canal ECVídeos, voltado
+            Um dos nomes mais representativos dessa nova geração é <a class="text-underline text-blue-400" href="https://www.instagram.com/ecvideosoficial?igsh=MW5jMXZmMTQxZzFkeg%3D%3D" target="_blank">Yuri Figueiredo</a>, criador do canal <a class="text-underline text-blue-400" href="https://www.youtube.com/@ecvideosoficial" target="_blank">ECVídeos</a>, voltado
             ao Esporte Clube Vitória. Com mais de 40 mil inscritos no YouTube e 50 mil seguidores no Instagram, Yuri
             transformou o amor pelo clube em conteúdo, e o conteúdo em ponto de encontro para milhares de rubro-negros.
 
@@ -1203,7 +1224,7 @@
                   <!-- Overlay no hover -->
                   <div
                     class="absolute inset-0 flex items-center justify-center p-4 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p class="text-white text-center text-2xl w-120">O time de futebol Vitória, da Bahia, lançou a
+                    <p class="text-white text-center text-2xl w-120">O time de futebol Vitória, lançou a
                       campanha "Meu
                       sangue é rubro-negro", removendo temporariamente o vermelho do uniforme para incentivar a doação
                       de
@@ -1388,7 +1409,7 @@
           Comunicar para sobreviver
         </h2>
         <h3 class="my-4 text-2xl font-bold text-left">
-          o desafio dos clubes do interior na era digital
+          O desafio dos clubes do interior na era digital
         </h3>
         <div class="mt-8 space-y-6 text-lg leading-relaxed" data-aos="fade-up">
           <p>
@@ -1399,7 +1420,7 @@
 
           </p>
           <p>
-            É o caso do Jacuipense, clube de Riachão do Jacuípe, que nos últimos anos se consolidou como uma das forças
+            É o caso do <a class="text-underline text-blue-400" href="https://www.instagram.com/ecjacuipense?igsh=MTc1bHhpa296MHRnYg%3D%3D" target="_blank">Jacuipense</a>, clube de Riachão do Jacuípe, que nos últimos anos se consolidou como uma das forças
             do interior. À frente da comunicação do Leão Grená está Lucas Pena, que expressa a realidade de dezenas de
             clubes do estado, com poucos recursos, equipes reduzidas e a necessidade de aprender tudo fazendo.
 
@@ -1583,7 +1604,7 @@
           Muito Além do Placar
         </h2>
         <h3 class="my-4 text-2xl font-bold text-left">
-          o torcedor e a experiência do futebol
+          O torcedor e a experiência do futebol
         </h3>
         <div class="mt-8 space-y-6 text-lg leading-relaxed" data-aos="fade-up">
           <p>
@@ -1606,7 +1627,6 @@
     <footer class="bg-black text-white px-8 py-2 text-center flex items-center justify-around flex-col md:flex-row">
       <div>
         <img class="w-60" src="assets/images/logo.png" alt="Logo Marcas em Campo" />
-        <img class="w-60" src="assets/images/unijorge.avif" alt="Logo unijorge" />
       </div>
 
       <div class="">
@@ -1631,7 +1651,7 @@
   <script>
     AOS.init();
 
-
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
 
     document.addEventListener('DOMContentLoaded', () => {
       const ctx = document.getElementById('socialChart').getContext('2d');
